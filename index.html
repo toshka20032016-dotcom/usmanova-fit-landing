@@ -7,152 +7,882 @@
   <meta name="description" content="Домашние тренировки и марафоны от Кати Усмановой. Идеальная попа, плоский живот, жиросжигание и рельеф.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-pink: #ff3377;
+      --hover-pink: #e02262;
+      --dark-gray: #1a1a1a;
+      --light-bg: #fdfeff;
+      --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+      --focus-shadow: 0 0 0 4px rgba(255, 51, 119, 0.15);
+      --valid-border: #4ade80;
+      --invalid-border: #ef4444;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #222222;
+      background-color: #ffffff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Sticky glass header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 18px 0;
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    header.header--scrolled {
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .header-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo span {
+      color: var(--primary-pink);
+    }
+
+    nav a {
+      color: #444;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 25px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary-pink);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0;
+      background: radial-gradient(circle at 80% 20%, #fff2f6 0%, #ffffff 50%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: #fff0f4;
+      color: var(--primary-pink);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 46px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      color: #111111;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 span {
+      color: var(--primary-pink);
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #555555;
+      margin-bottom: 35px;
+      max-width: 540px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-pink);
+      color: #ffffff;
+      padding: 18px 38px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(255, 51, 119, 0.25);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn:hover:not(:disabled) {
+      background-color: var(--hover-pink);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(255, 51, 119, 0.35);
+    }
+
+    .btn:disabled {
+      opacity: 0.75;
+      cursor: wait;
+    }
+
+    .hero-image-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-img {
+      width: 100%;
+      max-width: 440px;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .hero-img:hover {
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      aspect-ratio: 11 / 12;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Courses */
+    .courses {
+      padding: 100px 0;
+      background-color: #fafbfc;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: #777;
+      font-size: 15px;
+    }
+
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .category-tab {
+      padding: 10px 24px;
+      border-radius: 50px;
+      border: 2px solid #ffe0eb;
+      background: #ffffff;
+      color: #666;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .category-tab:hover {
+      border-color: var(--primary-pink);
+      color: var(--primary-pink);
+    }
+
+    .category-tab--active {
+      background: var(--primary-pink);
+      border-color: var(--primary-pink);
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(255, 51, 119, 0.25);
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .course-card {
+      background: #ffffff;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+    }
+
+    .course-card.is-hidden {
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+      position: absolute;
+      visibility: hidden;
+    }
+
+    .courses-grid {
+      position: relative;
+    }
+
+    .course-img {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .course-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .course-card:hover .course-img img {
+      transform: scale(1.06);
+    }
+
+    .course-img-overlay {
+      position: absolute;
+      inset: 0;
+      opacity: 0.45;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    .img-1 .course-img-overlay {
+      background: linear-gradient(135deg, #ff6a88 0%, #ff99ac 100%);
+    }
+
+    .img-2 .course-img-overlay {
+      background: linear-gradient(135deg, #485773 0%, #765285 100%);
+    }
+
+    .img-3 .course-img-overlay {
+      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    }
+
+    .course-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 1;
+    }
+
+    .course-content {
+      padding: 28px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .course-content h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .course-content p {
+      font-size: 14px;
+      color: #666666;
+      margin-bottom: 25px;
+    }
+
+    .course-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 15px;
+      border-top: 1px solid #f5f5f5;
+      gap: 12px;
+    }
+
+    .course-price {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary-pink);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary-pink);
+      border: 1.5px solid #ffe0eb;
+      padding: 10px 22px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+
+    .btn-outline:hover {
+      background: #fff0f4;
+      border-color: var(--primary-pink);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--dark-gray);
+      color: #ffffff;
+      padding: 80px 0 0;
+    }
+
+    .footer-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding-bottom: 56px;
+    }
+
+    .footer-info h2 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .footer-info p {
+      color: #999999;
+      font-size: 15px;
+    }
+
+    .footer-form {
+      background: #222222;
+      padding: 45px;
+      border-radius: 28px;
+      border: 1px solid #2a2a2a;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 9px;
+      color: #888888;
+      font-weight: 600;
+    }
+
+    .form-control {
+      width: 100%;
+      background: #2b2b2b;
+      border: 1px solid #3a3a3a;
+      padding: 16px 20px;
+      border-radius: 12px;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 15px;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-pink);
+      background: #333333;
+      box-shadow: var(--focus-shadow);
+    }
+
+    .form-control.valid {
+      border-color: var(--valid-border);
+    }
+
+    .form-control.invalid {
+      border-color: var(--invalid-border);
+      animation: pulse-invalid 0.5s ease;
+    }
+
+    @keyframes pulse-invalid {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+    }
+
+    .form-btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 24px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-window {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 24px;
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      transform: scale(0.9);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-overlay.active .modal-window {
+      transform: scale(1);
+    }
+
+    .modal-window h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 15px;
+      color: #111;
+    }
+
+    .modal-window p {
+      color: #555;
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+
+    .modal-window .btn {
+      padding: 12px 30px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-image-wrapper {
+        order: -1;
+      }
+
+      .courses-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .footer-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .course-footer {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-outline {
+        width: 100%;
+        text-align: center;
+      }
+
+      .footer-form {
+        padding: 28px;
+      }
+
+      nav a {
+        margin-left: 16px;
+        font-size: 11px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <div class="container header__inner">
+
+  <header id="site-header">
+    <div class="container header-wrapper">
       <a href="#" class="logo">USMANOVA<span>TEAM</span></a>
-      <nav class="nav">
+      <nav>
         <a href="#programs">Марафоны</a>
         <a href="#lead-form">Контакты</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__content">
-          <span class="badge">UsmanovaTeam теперь в GymTeam</span>
-          <h1 class="hero__title">
-            Твоё идеальное тело под руководством <span class="accent">Кати Усмановой</span>
-          </h1>
-          <p class="hero__text">
-            Домашние тренировки и марафоны, которые работают без диет, голода и запретов.
-            Подтяни попу и живот, сожги жир и почувствуй лёгкость уже через несколько недель —
-            с пользой для здоровья и поддержкой чемпионки фитнес-бикини.
-          </p>
-          <button type="button" class="btn btn--primary btn--lg" onclick="scrollToForm()">Начать тренировки</button>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-badge">UsmanovaTeam теперь в GymTeam</span>
+        <h1>Твоё идеальное тело<br>под руководством<br><span>Кати Усмановой</span></h1>
+        <p>Домашние тренировки и марафоны, которые работают без диет, голода и запретов. Подтяни попу и живот, сожги жир и почувствуй лёгкость уже через несколько недель — с пользой для здоровья и поддержкой чемпионки фитнес-бикини.</p>
+        <button type="button" class="btn" onclick="scrollToForm()">Начать тренировки</button>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="hero-img">
+          <img src="images/hero-katya.png" alt="Катя Усманова — фитнес-тренер" width="440" height="480" loading="eager">
         </div>
-        <div class="hero__media">
-          <div class="hero__image-wrap">
-            <img src="images/hero-katya.png" alt="Катя Усманова — фитнес-тренер" width="600" height="700" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <section class="courses" id="programs">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Популярные марафоны</h2>
+        <p>Программы, которые выбирают чаще всего</p>
+      </div>
+
+      <div class="category-tabs" role="tablist" aria-label="Фильтр программ">
+        <button type="button" class="category-tab category-tab--active" data-filter="all" role="tab" aria-selected="true">Все</button>
+        <button type="button" class="category-tab" data-filter="marathon" role="tab" aria-selected="false">Марафоны</button>
+        <button type="button" class="category-tab" data-filter="intensive" role="tab" aria-selected="false">Интенсивы</button>
+      </div>
+
+      <div class="courses-grid">
+        <article class="course-card reveal" data-category="marathon" data-reveal-delay="0">
+          <div class="course-img img-1">
+            <img src="images/course-popa.png" alt="Идеальная попа" loading="lazy">
+            <div class="course-img-overlay"></div>
+            <span class="course-badge">Марафон</span>
           </div>
-        </div>
+          <div class="course-content">
+            <div>
+              <h3>Идеальная попа</h3>
+              <p>Первый объём и подтянутость ягодиц с собственным весом. Для тех, кто впервые целенаправленно работает над попой.</p>
+            </div>
+            <div class="course-footer">
+              <span class="course-price">2 990 ₽</span>
+              <button type="button" class="btn-outline" onclick="openModal('Идеальная попа')">Подробнее</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="course-card reveal" data-category="marathon" data-reveal-delay="100">
+          <div class="course-img img-2">
+            <img src="images/course-belly.png" alt="Плоский живот" loading="lazy">
+            <div class="course-img-overlay"></div>
+            <span class="course-badge">Марафон</span>
+          </div>
+          <div class="course-content">
+            <div>
+              <h3>Плоский живот</h3>
+              <p>Убрать вываливающийся живот, который не уходит даже после похудения. Тренировки на глубокие мышцы пресса.</p>
+            </div>
+            <div class="course-footer">
+              <span class="course-price">2 990 ₽</span>
+              <button type="button" class="btn-outline" onclick="openModal('Плоский живот')">Подробнее</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="course-card reveal" data-category="intensive" data-reveal-delay="200">
+          <div class="course-img img-3">
+            <img src="images/course-fatburn.png" alt="Жиросжигание и рельеф" loading="lazy">
+            <div class="course-img-overlay"></div>
+            <span class="course-badge">Интенсив</span>
+          </div>
+          <div class="course-content">
+            <div>
+              <h3>Жиросжигание и рельеф</h3>
+              <p>Сжечь жир и проявить рельеф за 6 недель. Интервальные нагрузки с гантелями для подготовленных.</p>
+            </div>
+            <div class="course-footer">
+              <span class="course-price">3 490 ₽</span>
+              <button type="button" class="btn-outline" onclick="openModal('Жиросжигание и рельеф')">Подробнее</button>
+            </div>
+          </div>
+        </article>
       </div>
-    </section>
-
-    <section class="courses" id="programs">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2 class="section-title">Популярные марафоны</h2>
-          <p class="section-subtitle">Программы, которые выбирают чаще всего</p>
-        </div>
-
-        <div class="category-tabs" role="tablist" aria-label="Фильтр программ">
-          <button type="button" class="category-tab category-tab--active" data-filter="all" role="tab" aria-selected="true">Все</button>
-          <button type="button" class="category-tab" data-filter="marathon" role="tab" aria-selected="false">Марафоны</button>
-          <button type="button" class="category-tab" data-filter="intensive" role="tab" aria-selected="false">Интенсивы</button>
-        </div>
-
-        <div class="courses__grid">
-          <article class="course-card course-card--1 reveal" data-category="marathon" data-reveal-delay="0">
-            <div class="course-card__visual">
-              <img src="images/course-popa.png" alt="Идеальная попа" loading="lazy">
-              <span class="course-card__badge">Марафон</span>
-              <div class="course-card__overlay"></div>
-            </div>
-            <div class="course-card__body">
-              <h3 class="course-card__title">Идеальная попа</h3>
-              <p class="course-card__desc">
-                Первый объём и подтянутость ягодиц с собственным весом. Для тех, кто впервые целенаправленно работает над попой.
-              </p>
-              <div class="course-card__footer">
-                <span class="course-card__price">2 990 ₽</span>
-                <button type="button" class="btn btn--outline">Подробнее</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="course-card course-card--2 reveal" data-category="marathon" data-reveal-delay="100">
-            <div class="course-card__visual">
-              <img src="images/course-belly.png" alt="Плоский живот" loading="lazy">
-              <span class="course-card__badge">Марафон</span>
-              <div class="course-card__overlay"></div>
-            </div>
-            <div class="course-card__body">
-              <h3 class="course-card__title">Плоский живот</h3>
-              <p class="course-card__desc">
-                Убрать вываливающийся живот, который не уходит даже после похудения. Тренировки на глубокие мышцы пресса.
-              </p>
-              <div class="course-card__footer">
-                <span class="course-card__price">2 990 ₽</span>
-                <button type="button" class="btn btn--outline">Подробнее</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="course-card course-card--3 reveal" data-category="intensive" data-reveal-delay="200">
-            <div class="course-card__visual">
-              <img src="images/course-fatburn.png" alt="Жиросжигание и рельеф" loading="lazy">
-              <span class="course-card__badge">Интенсив</span>
-              <div class="course-card__overlay"></div>
-            </div>
-            <div class="course-card__body">
-              <h3 class="course-card__title">Жиросжигание и рельеф</h3>
-              <p class="course-card__desc">
-                Сжечь жир и проявить рельеф за 6 недель. Интервальные нагрузки с гантелями для подготовленных.
-              </p>
-              <div class="course-card__footer">
-                <span class="course-card__price">3 490 ₽</span>
-                <button type="button" class="btn btn--outline">Подробнее</button>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <footer class="footer" id="lead-form">
-    <div class="container footer__grid">
-      <div class="footer__info">
-        <h2 class="footer__title">Остались вопросы?</h2>
-        <p class="footer__text">
-          Напишите нам — поможем подобрать программу под вашу цель и уровень.
-          Это бесплатно и быстро. Более 580 000 учениц уже тренируются с Катей.
-        </p>
+    <div class="container">
+      <div class="footer-wrapper reveal">
+        <div class="footer-info">
+          <h2>Остались вопросы?</h2>
+          <p>Напишите нам — поможем подобрать программу под вашу цель и уровень. Это бесплатно и быстро. Более 580 000 учениц уже тренируются с Катей.</p>
+        </div>
+        <div>
+          <form class="footer-form" id="contact-form" onsubmit="return handleFormSubmit(event)" novalidate>
+            <div class="form-group">
+              <label for="name">Ваше имя</label>
+              <input type="text" id="name" name="name" class="form-control" placeholder="Как к вам обращаться?" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="your@email.com" required autocomplete="email">
+            </div>
+            <button type="submit" class="btn form-btn" id="submit-btn">Отправить</button>
+          </form>
+        </div>
       </div>
-      <form class="contact-form footer-form reveal" id="contact-form" onsubmit="return handleFormSubmit(event)" novalidate>
-        <div class="form-group">
-          <label for="name">Ваше имя</label>
-          <input type="text" id="name" name="name" placeholder="Как к вам обращаться?" required autocomplete="name">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
-        </div>
-        <button type="submit" class="btn btn--primary btn--full" id="submit-btn">Отправить</button>
-      </form>
     </div>
-    <div class="footer__bottom">
+    <div class="footer-bottom">
       <div class="container">
         <p>&copy; 2026 UsmanovaTeam. Все права защищены.</p>
       </div>
     </div>
   </footer>
 
-  <div class="modal" id="success-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-modal="true">
-    <div class="modal__backdrop" data-modal-close></div>
-    <div class="modal__dialog">
-      <h2 class="modal__title" id="modal-title">Спасибо!</h2>
-      <p class="modal__text" id="modal-message"></p>
-      <button type="button" class="btn btn--primary modal__close" data-modal-close>Закрыть</button>
+  <div class="modal-overlay" id="custom-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+    <div class="modal-window">
+      <h3 id="modal-title">Успешно!</h3>
+      <p id="modal-text">Спасибо за вашу заявку.</p>
+      <button type="button" class="btn" onclick="closeModal()">Закрыть</button>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const modal = document.getElementById('custom-modal');
+    const mTitle = document.getElementById('modal-title');
+    const mText = document.getElementById('modal-text');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const submitBtn = document.getElementById('submit-btn');
+    const header = document.getElementById('site-header');
+
+    function scrollToForm() {
+      document.getElementById('lead-form').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function openModal(courseName) {
+      mTitle.textContent = 'Выбор программы';
+      mText.textContent = `Вы собираетесь перейти к оформлению курса «${courseName}». Наша платформа GymTeam подготовит ваш личный кабинет.`;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+
+    function validateName() {
+      const valid = nameInput.value.trim().length > 0;
+      nameInput.classList.toggle('valid', valid && nameInput.value.length > 0);
+      nameInput.classList.toggle('invalid', !valid && nameInput.value.length > 0);
+      return valid;
+    }
+
+    function validateEmail() {
+      const value = emailInput.value.trim();
+      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      emailInput.classList.toggle('valid', valid && value.length > 0);
+      emailInput.classList.toggle('invalid', !valid && value.length > 0);
+      return valid;
+    }
+
+    nameInput.addEventListener('input', validateName);
+    nameInput.addEventListener('blur', validateName);
+    emailInput.addEventListener('input', validateEmail);
+    emailInput.addEventListener('blur', validateEmail);
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      const nameValid = validateName();
+      const emailValid = validateEmail();
+      if (!nameValid || !emailValid) return false;
+
+      const name = nameInput.value.trim();
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Отправка...';
+
+      setTimeout(() => {
+        mTitle.textContent = 'Заявка принята!';
+        mText.textContent = `Спасибо, ${name}! Мы получили ваши данные и отправили подборку марафонов на вашу почту.`;
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+
+        event.target.reset();
+        nameInput.classList.remove('valid', 'invalid');
+        emailInput.classList.remove('valid', 'invalid');
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }, 1500);
+
+      return false;
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delay = entry.target.dataset.revealDelay;
+          if (delay) entry.target.style.transitionDelay = delay + 'ms';
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const courseCards = document.querySelectorAll('.course-card');
+
+    categoryTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const filter = tab.dataset.filter;
+
+        categoryTabs.forEach((t) => {
+          t.classList.toggle('category-tab--active', t === tab);
+          t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+        });
+
+        courseCards.forEach((card) => {
+          const category = card.dataset.category;
+          const show = filter === 'all' || category === filter;
+          card.classList.toggle('is-hidden', !show);
+        });
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('header--scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', (e) => {
+        const targetId = anchor.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
