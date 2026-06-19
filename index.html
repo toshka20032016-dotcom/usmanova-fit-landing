@@ -435,26 +435,23 @@
     }
 
     .courses-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      align-items: stretch;
     }
 
     .course-card {
       position: relative;
-      flex: 0 0 calc(33.333% - 16px);
-      max-width: calc(33.333% - 16px);
       background: #ffffff;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.04);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-      transition: opacity 0.45s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                  flex-basis 0.45s ease, max-width 0.45s ease,
-                  box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+      border-radius: 24px;
+      border: 1px solid #f0f2f5;
       display: flex;
       flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease,
+                  opacity 0.45s ease, border-color 0.4s ease;
     }
 
     .course-card:hover:not(.is-hidden) {
@@ -464,16 +461,7 @@
     }
 
     .course-card.is-hidden {
-      opacity: 0;
-      transform: scale(0.92);
-      flex: 0 0 0 !important;
-      max-width: 0 !important;
-      min-width: 0 !important;
-      overflow: hidden;
-      pointer-events: none;
-      margin: 0;
-      padding: 0;
-      border: none;
+      display: none;
     }
 
     .course-img {
@@ -546,14 +534,14 @@
     }
 
     .course-content {
-      padding: 18px 22px 22px;
+      padding: 28px;
       margin-top: -12px;
       position: relative;
       z-index: 4;
       background: #fff;
-      flex-grow: 1;
       display: flex;
       flex-direction: column;
+      flex-grow: 1;
       line-height: 1.5;
     }
 
@@ -571,20 +559,50 @@
       margin-bottom: 12px;
     }
 
-    .course-content p {
+    .course-content > p:not(.course-meta) {
       font-size: 14px;
       color: #666;
-      margin-bottom: 20px;
-      flex-grow: 1;
+      line-height: 1.5;
+      margin-bottom: 24px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: calc(1.5em * 3);
     }
 
     .course-footer {
+      margin-top: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 15px;
-      border-top: 1px solid #f5f5f5;
+      padding-top: 20px;
+      border-top: 1px solid #f8f9fa;
       gap: 12px;
+    }
+
+    .course-footer .btn-outline {
+      min-width: 120px;
+      flex-shrink: 0;
+      justify-content: center;
+    }
+
+    @media (min-width: 992px) {
+      .courses-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      .course-card:not(.is-hidden) {
+        grid-column: span 2;
+      }
+
+      .courses-grid:has(.course-card:nth-child(5):last-child:not(.is-hidden)) .course-card:not(.is-hidden):nth-child(4) {
+        grid-column: 2 / span 2;
+      }
+
+      .courses-grid:has(.course-card:nth-child(5):last-child:not(.is-hidden)) .course-card:not(.is-hidden):nth-child(5) {
+        grid-column: 4 / span 2;
+      }
     }
 
     .course-price {
@@ -600,28 +618,39 @@
 
     .results-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .result-card {
-      border-radius: 14px;
+    @media (min-width: 768px) {
+      .results-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .result-item {
+      background: #ffffff;
+      border-radius: 16px;
       overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.04);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+      border: 1px solid #f0f2f5;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .result-card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    .result-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
     }
 
-    .result-card img {
+    .result-item img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
       aspect-ratio: 3 / 4;
+      object-fit: cover;
+      background: #fdf8f9;
     }
 
     /* Reviews */
@@ -921,10 +950,16 @@
 
     .footer-wrapper {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr minmax(0, 480px);
       gap: 80px;
       align-items: start;
       padding-bottom: 56px;
+    }
+
+    .footer-form-col {
+      width: 100%;
+      max-width: 480px;
+      justify-self: end;
     }
 
     .footer-info h2 {
@@ -985,19 +1020,20 @@
 
     .floating-input {
       width: 100%;
+      height: 54px;
       background: rgba(43, 43, 43, 0.55);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 22px 18px 10px;
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      padding: 22px 20px 8px;
       border-radius: 12px;
       color: #fff;
       font-family: inherit;
       font-size: 15px;
-      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, padding 0.2s;
+      transition: border-color 0.25s, background 0.25s, box-shadow 0.25s, padding 0.25s;
     }
 
     .floating-label {
       position: absolute;
-      left: 18px;
+      left: 20px;
       top: 50%;
       transform: translateY(-50%);
       font-size: 15px;
@@ -1012,8 +1048,8 @@
 
     .floating-input:focus,
     .floating-input:not(:placeholder-shown) {
-      padding-top: 26px;
-      padding-bottom: 8px;
+      padding-top: 24px;
+      padding-bottom: 6px;
     }
 
     .floating-input:focus + .floating-label,
@@ -1039,21 +1075,22 @@
 
     .form-control {
       width: 100%;
-      background: #2b2b2b;
-      border: 1px solid #3a3a3a;
-      padding: 16px 20px;
-      border-radius: 12px;
-      color: #fff;
-      font-family: inherit;
+      height: 54px;
+      padding: 0 20px;
       font-size: 15px;
-      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+      border: 1.5px solid #e4e7eb;
+      border-radius: 12px;
+      background: #fafbfc;
+      color: #111111;
+      transition: all 0.25s ease;
     }
 
     .form-control:focus {
-      outline: none;
       border-color: var(--primary-pink);
-      background: #333;
-      box-shadow: var(--focus-shadow);
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(255, 51, 119, 0.1);
+      outline: none;
     }
 
     .form-control.valid { border-color: var(--valid-border); }
@@ -1128,26 +1165,27 @@
       .hero-grid { grid-template-columns: 1fr; text-align: center; }
       .hero p { margin-left: auto; margin-right: auto; }
       .hero-image-wrapper { order: -1; }
-      .course-card { flex: 0 0 calc(50% - 15px); max-width: calc(50% - 15px); }
-      .results-grid { grid-template-columns: repeat(2, 1fr); }
+      .results-grid { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+      .footer-wrapper { grid-template-columns: 1fr; }
+      .footer-form-col { max-width: 100%; justify-self: stretch; }
       .reviews-grid { grid-template-columns: repeat(2, 1fr); }
       .features-cards { grid-template-columns: 1fr; }
       .features-list { grid-template-columns: 1fr; }
       .lifestyle-grid { grid-template-columns: repeat(2, 1fr); }
       .pricing-grid { grid-template-columns: 1fr; max-width: 440px; }
       .pricing-card--popular { transform: none; }
-      .footer-wrapper { grid-template-columns: 1fr; text-align: center; }
+      .footer-wrapper { text-align: center; }
       .social-links { justify-content: center; }
     }
 
     @media (max-width: 600px) {
       nav a { margin-left: 12px; font-size: 10px; }
-      .course-card { flex: 0 0 100%; max-width: 100%; }
-      .results-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .results-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
       .reviews-grid { grid-template-columns: 1fr; }
       .lifestyle-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .course-footer { flex-direction: column; align-items: stretch; }
       .btn-outline { width: 100%; text-align: center; }
+      .section-focus-wrapper { padding: 28px 24px; }
       .footer-form { padding: 28px; }
       .benefits-box { padding: 28px 24px; }
     }
@@ -1165,7 +1203,7 @@
 
     .hero-img.skeleton { min-height: 400px; }
     .course-img.skeleton { min-height: 220px; }
-    .result-card.skeleton { min-height: 200px; }
+    .result-item.skeleton { min-height: 200px; }
     .review-card.skeleton { min-height: 180px; }
     .feature-card.skeleton { min-height: 220px; }
     .lifestyle-photo.skeleton { min-height: 160px; }
@@ -1214,13 +1252,14 @@
       background: radial-gradient(circle at 20% 80%, #fff2f6 0%, #ffffff 60%);
     }
 
-    .calculator-card {
-      background: #ffffff;
-      border-radius: 24px;
-      box-shadow: var(--card-shadow);
-      padding: 40px;
-      max-width: 560px;
+    .section-focus-wrapper {
+      max-width: 580px;
       margin: 0 auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 28px;
+      border: 1px solid #f0f2f5;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
     }
 
     .calculator-form {
@@ -1242,20 +1281,22 @@
 
     .calc-control {
       width: 100%;
-      background: #fafbfc;
-      border: 1px solid #e8eaed;
-      padding: 16px 20px;
-      border-radius: 12px;
-      color: #222222;
-      font-family: inherit;
+      height: 54px;
+      padding: 0 20px;
       font-size: 15px;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      font-family: inherit;
+      border: 1.5px solid #e4e7eb;
+      border-radius: 12px;
+      background: #fafbfc;
+      color: #111111;
+      transition: all 0.25s ease;
     }
 
     .calc-control:focus {
-      outline: none;
       border-color: var(--primary-pink);
-      box-shadow: var(--focus-shadow);
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(255, 51, 119, 0.1);
+      outline: none;
     }
 
     .calculator-result {
@@ -1476,14 +1517,14 @@
         <p>480 000 женщин уже прошли эти программы</p>
       </div>
       <div class="results-grid reveal">
-        <div class="result-card"><img src="images/result-01.png" alt="Результат до и после 1" loading="lazy"></div>
-        <div class="result-card"><img src="images/result-02.png" alt="Результат до и после 2" loading="lazy"></div>
-        <div class="result-card"><img src="images/result-03.png" alt="Результат до и после 3" loading="lazy"></div>
-        <div class="result-card"><img src="images/result-04.png" alt="Результат до и после 4" loading="lazy"></div>
-        <div class="result-card"><img src="images/result-05.png" alt="Результат до и после 5" loading="lazy"></div>
-        <div class="result-card"><img src="images/result-06.jpg" alt="Результат до и после 6" loading="lazy"></div>
-        <div class="result-card"><img src="images/result-07.jpg" alt="Результат до и после 7" loading="lazy"></div>
-        <div class="result-card"><img src="images/result-08.jpg" alt="Результат до и после 8" loading="lazy"></div>
+        <div class="result-item"><img src="images/result-01.png" alt="Результат до и после 1" loading="lazy"></div>
+        <div class="result-item"><img src="images/result-02.png" alt="Результат до и после 2" loading="lazy"></div>
+        <div class="result-item"><img src="images/result-03.png" alt="Результат до и после 3" loading="lazy"></div>
+        <div class="result-item"><img src="images/result-04.png" alt="Результат до и после 4" loading="lazy"></div>
+        <div class="result-item"><img src="images/result-05.png" alt="Результат до и после 5" loading="lazy"></div>
+        <div class="result-item"><img src="images/result-06.jpg" alt="Результат до и после 6" loading="lazy"></div>
+        <div class="result-item"><img src="images/result-07.jpg" alt="Результат до и после 7" loading="lazy"></div>
+        <div class="result-item"><img src="images/result-08.jpg" alt="Результат до и после 8" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -1588,7 +1629,7 @@
         <p>Узнайте свою норму по формуле Mifflin-St Jeor</p>
       </div>
 
-      <div class="calculator-card reveal">
+      <div class="section-focus-wrapper reveal">
         <form class="calculator-form" id="calculator-form" onsubmit="return calculateCalories(event)" aria-labelledby="calculator-heading">
           <fieldset class="calculator-fieldset">
             <legend class="visually-hidden">Параметры для расчёта калорий</legend>
@@ -1756,7 +1797,7 @@
             </a>
           </div>
         </div>
-        <div>
+        <div class="footer-form-col">
           <form class="footer-form" id="contact-form" onsubmit="return handleFormSubmit(event)" novalidate>
             <input type="hidden" id="utm_source" name="utm_source" value="">
             <input type="hidden" id="utm_medium" name="utm_medium" value="">
@@ -2036,7 +2077,7 @@
     });
 
     function initImageSkeletons() {
-      const skeletonWrappers = ['hero-img', 'course-img', 'result-card', 'review-card', 'feature-card', 'lifestyle-photo'];
+      const skeletonWrappers = ['hero-img', 'course-img', 'result-item', 'review-card', 'feature-card', 'lifestyle-photo'];
 
       document.querySelectorAll('img').forEach((img) => {
         const wrapper = img.parentElement;
