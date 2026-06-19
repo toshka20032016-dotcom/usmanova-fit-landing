@@ -1187,7 +1187,6 @@
       .lifestyle-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .course-footer { flex-direction: column; align-items: stretch; }
       .btn-outline { width: 100%; text-align: center; }
-      .section-focus-wrapper { padding: 28px 24px; }
       .footer-form { padding: 28px; }
       .benefits-box { padding: 28px 24px; }
     }
@@ -1248,102 +1247,208 @@
 
     .sales-pop.show { left: 20px; }
 
-    /* Calorie calculator */
-    .calculator {
-      padding: 70px 0;
+    /* Calorie calculator widget */
+    .calculator-section {
+      padding: 80px 20px;
       background: radial-gradient(circle at 20% 80%, #fff2f6 0%, #ffffff 60%);
-    }
-
-    .section-focus-wrapper {
-      max-width: 580px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 40px;
-      border-radius: 28px;
-      border: 1px solid #f0f2f5;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
-    }
-
-    .calculator-form {
-      display: grid;
-      gap: 20px;
-    }
-
-    .calculator-form .form-group { margin-bottom: 0; }
-
-    .calculator-form label {
-      display: block;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 9px;
-      color: #888888;
-      font-weight: 600;
-    }
-
-    .calc-control {
-      width: 100%;
-      height: 54px;
-      padding: 0 20px;
-      font-size: 15px;
       font-family: inherit;
-      border: 1.5px solid #e4e7eb;
-      border-radius: 12px;
-      background: #fafbfc;
-      color: #111111;
-      transition: all 0.25s ease;
     }
 
-    .calc-control:focus {
-      border-color: var(--primary-pink);
-      background: #ffffff;
-      box-shadow: 0 0 0 4px rgba(255, 51, 119, 0.1);
-      outline: none;
-    }
-
-    .calculator-result {
-      display: none;
-      margin-top: 28px;
-      padding-top: 28px;
-      border-top: 1px solid #f0f0f0;
-    }
-
-    .calculator-result.is-visible { display: block; }
-
-    .calculator-result__numbers {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    .calculator-stat {
-      flex: 1;
-      min-width: 140px;
-      background: var(--light-pink);
-      border-radius: 16px;
-      padding: 16px 20px;
+    .calculator-container {
+      max-width: 600px;
+      margin: 0 auto;
       text-align: center;
     }
 
-    .calculator-stat__value {
-      font-size: 28px;
+    .calculator-title {
+      font-size: clamp(1.6rem, 3vw, 32px);
       font-weight: 800;
-      color: var(--primary-pink);
-      line-height: 1.2;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
     }
 
-    .calculator-stat__label {
+    .calculator-subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+      line-height: 1.5;
+    }
+
+    .calculator-card {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04);
+      border: 1px solid #f0f2f5;
+      text-align: left;
+    }
+
+    .gender-toggle-wrapper {
+      display: flex;
+      background: #f4f5f7;
+      padding: 4px;
+      border-radius: 14px;
+      margin-bottom: 28px;
+    }
+
+    .gender-tab {
+      flex: 1;
+      cursor: pointer;
+    }
+
+    .gender-tab input {
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+      pointer-events: none;
+    }
+
+    .gender-tile {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #666666;
+      border-radius: 11px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gender-tab input:checked + .gender-tile {
+      background: #ffffff;
+      color: var(--text-primary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .gender-tab input:focus-visible + .gender-tile {
+      box-shadow: var(--focus-shadow);
+    }
+
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-label {
       font-size: 12px;
-      color: #777;
-      margin-top: 4px;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      padding-left: 4px;
     }
 
-    .calculator-cta {
+    .calc-input {
+      width: 100%;
+      height: 54px;
+      background: #fafbfc;
+      border: 1.5px solid #e4e7eb;
+      border-radius: 14px;
+      padding: 0 16px;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: inherit;
+      color: var(--text-primary);
+      outline: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      -moz-appearance: textfield;
+    }
+
+    .calc-input::-webkit-outer-spin-button,
+    .calc-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .calc-input:focus {
+      border-color: var(--primary-pink);
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(255, 51, 119, 0.1);
+    }
+
+    .calculator-btn {
+      width: 100%;
+      height: 56px;
+      background: linear-gradient(135deg, #ff3377 0%, #ff5599 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 16px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(255, 51, 119, 0.25);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .calculator-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255, 51, 119, 0.35);
+    }
+
+    .result-box {
+      background: #fff5f8;
+      border: 1px solid rgba(255, 51, 119, 0.15);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 28px;
+      text-align: center;
+      animation: fadeInResult 0.4s ease-out;
+    }
+
+    .result-value {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--primary-pink);
+      line-height: 1;
+      margin-bottom: 4px;
+      letter-spacing: -0.03em;
+    }
+
+    .result-unit {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .result-text {
       font-size: 14px;
-      color: #555;
-      margin-bottom: 20px;
-      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .result-deficit-hint {
+      font-size: 14px;
+      color: var(--text-primary);
+      border-top: 1px dashed rgba(255, 51, 119, 0.2);
+      padding-top: 12px;
+      line-height: 1.5;
+    }
+
+    @keyframes fadeInResult {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .calculator-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .calculator-card {
+        padding: 28px 24px;
+      }
     }
 
     .lifestyle-photo {
@@ -1365,7 +1470,8 @@
     .feature-item,
     .pricing-features li,
     .faq-answer p,
-    .calculator-cta,
+    .result-text,
+    .result-deficit-hint,
     .footer-info p {
       color: var(--text-secondary);
       font-size: 15px;
@@ -1399,7 +1505,7 @@
 
     .course-price,
     .price-current,
-    .calculator-stat__value {
+    .result-value {
       letter-spacing: -0.03em;
     }
 
@@ -1411,13 +1517,6 @@
       background: #fdf8f9;
     }
 
-    .section-focus-wrapper {
-      max-width: 540px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .section-focus-wrapper::before,
     .footer-form::before {
       content: '';
       position: absolute;
@@ -1430,8 +1529,6 @@
       pointer-events: none;
     }
 
-    .calculator-form,
-    .calculator-result,
     .footer-form > * {
       position: relative;
       z-index: 1;
@@ -1487,7 +1584,7 @@
     }
 
     .form-control,
-    .calc-control,
+    .calc-input,
     .floating-input {
       min-height: 54px;
     }
@@ -1499,7 +1596,8 @@
     .pricing-card,
     .feature-card,
     .floating-input,
-    .calc-control {
+    .calc-input,
+    .calculator-btn {
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -1507,7 +1605,8 @@
     .btn-outline:focus-visible,
     .category-tab:focus-visible,
     .floating-input:focus-visible,
-    .calc-control:focus-visible {
+    .calc-input:focus-visible,
+    .calculator-btn:focus-visible {
       outline: none;
       box-shadow: var(--focus-shadow);
     }
@@ -1779,54 +1878,47 @@
     </div>
   </section>
 
-  <section class="calculator reveal" id="calculator">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 id="calculator-heading">Калькулятор калорий</h2>
-        <p>Узнайте свою норму по формуле Mifflin-St Jeor</p>
-      </div>
+  <section class="calculator-section reveal" id="calculator" aria-labelledby="calculator-heading">
+    <div class="calculator-container">
+      <h2 class="calculator-title" id="calculator-heading">Калькулятор калорий</h2>
+      <p class="calculator-subtitle">Узнайте свою индивидуальную норму по формуле Mifflin-St Jeor</p>
 
-      <div class="section-focus-wrapper reveal">
-        <form class="calculator-form" id="calculator-form" onsubmit="return calculateCalories(event)" aria-labelledby="calculator-heading">
-          <fieldset class="calculator-fieldset">
-            <legend class="visually-hidden">Параметры для расчёта калорий</legend>
-          <div class="form-group">
-            <label for="calc-weight">Вес (кг)</label>
-            <input type="number" id="calc-weight" class="calc-control" min="30" max="250" step="0.1" placeholder="65" required aria-required="true">
-          </div>
-          <div class="form-group">
-            <label for="calc-height">Рост (см)</label>
-            <input type="number" id="calc-height" class="calc-control" min="120" max="230" step="1" placeholder="168" required aria-required="true">
-          </div>
-          <div class="form-group">
-            <label for="calc-age">Возраст</label>
-            <input type="number" id="calc-age" class="calc-control" min="14" max="99" step="1" placeholder="30" required aria-required="true">
-          </div>
-          <div class="form-group">
-            <label for="calc-gender">Пол</label>
-            <select id="calc-gender" class="calc-control" aria-label="Пол">
-              <option value="female" selected>Женский</option>
-              <option value="male">Мужской</option>
-            </select>
-          </div>
-          <button type="submit" class="btn">Рассчитать</button>
-          </fieldset>
-        </form>
-
-        <div class="calculator-result" id="calculator-result" aria-live="polite">
-          <div class="calculator-result__numbers">
-            <div class="calculator-stat">
-              <div class="calculator-stat__value" id="calc-bmr">—</div>
-              <div class="calculator-stat__label">Базовый обмен (ккал/день)</div>
-            </div>
-            <div class="calculator-stat">
-              <div class="calculator-stat__value" id="calc-deficit">—</div>
-              <div class="calculator-stat__label">Для мягкого дефицита (~85%)</div>
-            </div>
-          </div>
-          <p class="calculator-cta">Чтобы удерживать этот вес вкусно и без срывов, забирай Гайд по питанию в тарифе «Всё включено»</p>
-          <button type="button" class="btn" onclick="document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' })">Смотреть тарифы</button>
+      <div class="calculator-card">
+        <div class="gender-toggle-wrapper" role="radiogroup" aria-label="Пол">
+          <label class="gender-tab">
+            <input type="radio" name="gender" value="female" checked onchange="calculateCalories()">
+            <span class="gender-tile">Женский</span>
+          </label>
+          <label class="gender-tab">
+            <input type="radio" name="gender" value="male" onchange="calculateCalories()">
+            <span class="gender-tile">Мужской</span>
+          </label>
         </div>
+
+        <div class="calculator-grid">
+          <div class="input-group">
+            <label class="input-label" for="calc-weight">Вес (кг)</label>
+            <input type="number" id="calc-weight" class="calc-input" placeholder="65" min="30" max="200" oninput="calculateCalories()" inputmode="decimal">
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="calc-height">Рост (см)</label>
+            <input type="number" id="calc-height" class="calc-input" placeholder="168" min="100" max="250" oninput="calculateCalories()" inputmode="numeric">
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="calc-age">Возраст</label>
+            <input type="number" id="calc-age" class="calc-input" placeholder="30" min="14" max="100" oninput="calculateCalories()" inputmode="numeric">
+          </div>
+        </div>
+
+        <div id="calculator-result-box" class="result-box" style="display: none;" aria-live="polite">
+          <div class="result-value"><span id="bmr-value">0</span> <span class="result-unit">ккал</span></div>
+          <p class="result-text">Ваша базовая норма для поддержания веса</p>
+          <div class="result-deficit-hint">
+            Для безопасного похудения держите дефицит: <strong id="deficit-value">0</strong> ккал
+          </div>
+        </div>
+
+        <button type="button" class="calculator-btn" onclick="calculateCalories()">Рассчитать норму</button>
       </div>
     </div>
   </section>
@@ -2266,28 +2358,31 @@
       document.getElementById('utm_campaign').value = urlParams.get('utm_campaign') || 'none';
     }
 
-    function calculateCalories(event) {
-      event.preventDefault();
-
+    function calculateCalories() {
       const weight = parseFloat(document.getElementById('calc-weight').value);
       const height = parseFloat(document.getElementById('calc-height').value);
       const age = parseFloat(document.getElementById('calc-age').value);
-      const gender = document.getElementById('calc-gender').value;
+      const genderInput = document.querySelector('input[name="gender"]:checked');
+      const gender = genderInput ? genderInput.value : 'female';
 
-      if (!weight || !height || !age) return false;
+      const resultBox = document.getElementById('calculator-result-box');
+      const bmrValue = document.getElementById('bmr-value');
+      const deficitValue = document.getElementById('deficit-value');
 
-      const bmr = gender === 'male'
-        ? 10 * weight + 6.25 * height - 5 * age + 5
-        : 10 * weight + 6.25 * height - 5 * age - 161;
+      if (weight > 30 && height > 100 && age > 10) {
+        const bmr = gender === 'male'
+          ? (10 * weight) + (6.25 * height) - (5 * age) + 5
+          : (10 * weight) + (6.25 * height) - (5 * age) - 161;
 
-      const maintenance = Math.round(bmr);
-      const deficit = Math.round(bmr * 0.85);
+        const finalBmr = Math.round(bmr);
+        const deficit = Math.round(finalBmr * 0.85);
 
-      document.getElementById('calc-bmr').textContent = String(maintenance);
-      document.getElementById('calc-deficit').textContent = String(deficit);
-      document.getElementById('calculator-result').classList.add('is-visible');
-
-      return false;
+        bmrValue.textContent = finalBmr.toLocaleString('ru-RU');
+        deficitValue.textContent = deficit.toLocaleString('ru-RU');
+        resultBox.style.display = 'block';
+      } else {
+        resultBox.style.display = 'none';
+      }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
