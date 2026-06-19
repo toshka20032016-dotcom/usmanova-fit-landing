@@ -46,19 +46,25 @@
 
     <section class="courses" id="programs">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2 class="section-title">Популярные марафоны</h2>
           <p class="section-subtitle">Программы, которые выбирают чаще всего</p>
         </div>
 
+        <div class="category-tabs" role="tablist" aria-label="Фильтр программ">
+          <button type="button" class="category-tab category-tab--active" data-filter="all" role="tab" aria-selected="true">Все</button>
+          <button type="button" class="category-tab" data-filter="marathon" role="tab" aria-selected="false">Марафоны</button>
+          <button type="button" class="category-tab" data-filter="intensive" role="tab" aria-selected="false">Интенсивы</button>
+        </div>
+
         <div class="courses__grid">
-          <article class="course-card course-card--1">
+          <article class="course-card course-card--1 reveal" data-category="marathon" data-reveal-delay="0">
             <div class="course-card__visual">
               <img src="images/course-popa.png" alt="Идеальная попа" loading="lazy">
+              <span class="course-card__badge">Марафон</span>
               <div class="course-card__overlay"></div>
             </div>
             <div class="course-card__body">
-              <span class="course-card__badge">Марафон</span>
               <h3 class="course-card__title">Идеальная попа</h3>
               <p class="course-card__desc">
                 Первый объём и подтянутость ягодиц с собственным весом. Для тех, кто впервые целенаправленно работает над попой.
@@ -70,13 +76,13 @@
             </div>
           </article>
 
-          <article class="course-card course-card--2">
+          <article class="course-card course-card--2 reveal" data-category="marathon" data-reveal-delay="100">
             <div class="course-card__visual">
               <img src="images/course-belly.png" alt="Плоский живот" loading="lazy">
+              <span class="course-card__badge">Марафон</span>
               <div class="course-card__overlay"></div>
             </div>
             <div class="course-card__body">
-              <span class="course-card__badge">Марафон</span>
               <h3 class="course-card__title">Плоский живот</h3>
               <p class="course-card__desc">
                 Убрать вываливающийся живот, который не уходит даже после похудения. Тренировки на глубокие мышцы пресса.
@@ -88,13 +94,13 @@
             </div>
           </article>
 
-          <article class="course-card course-card--3">
+          <article class="course-card course-card--3 reveal" data-category="intensive" data-reveal-delay="200">
             <div class="course-card__visual">
               <img src="images/course-fatburn.png" alt="Жиросжигание и рельеф" loading="lazy">
+              <span class="course-card__badge">Интенсив</span>
               <div class="course-card__overlay"></div>
             </div>
             <div class="course-card__body">
-              <span class="course-card__badge">Интенсив</span>
               <h3 class="course-card__title">Жиросжигание и рельеф</h3>
               <p class="course-card__desc">
                 Сжечь жир и проявить рельеф за 6 недель. Интервальные нагрузки с гантелями для подготовленных.
@@ -119,16 +125,16 @@
           Это бесплатно и быстро. Более 580 000 учениц уже тренируются с Катей.
         </p>
       </div>
-      <form class="contact-form" id="contact-form" onsubmit="return handleFormSubmit(event)">
+      <form class="contact-form footer-form reveal" id="contact-form" onsubmit="return handleFormSubmit(event)" novalidate>
         <div class="form-group">
           <label for="name">Ваше имя</label>
-          <input type="text" id="name" name="name" placeholder="Как к вам обращаться?" required>
+          <input type="text" id="name" name="name" placeholder="Как к вам обращаться?" required autocomplete="name">
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
         </div>
-        <button type="submit" class="btn btn--primary btn--full">Отправить</button>
+        <button type="submit" class="btn btn--primary btn--full" id="submit-btn">Отправить</button>
       </form>
     </div>
     <div class="footer__bottom">
@@ -137,6 +143,15 @@
       </div>
     </div>
   </footer>
+
+  <div class="modal" id="success-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__dialog">
+      <h2 class="modal__title" id="modal-title">Спасибо!</h2>
+      <p class="modal__text" id="modal-message"></p>
+      <button type="button" class="btn btn--primary modal__close" data-modal-close>Закрыть</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
