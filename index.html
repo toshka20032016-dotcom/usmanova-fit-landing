@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UsmanovaTeam — ТОП-5 марафонов июня</title>
-  <meta name="description" content="ТОП-5 марафонов июня от Кати Усмановой. Стройность, пресс, ягодицы, жиросжигание — дома, по 20–30 минут, с поддержкой GymTeam.">
+  <title>GymTeam &amp; UsmanovaFit — Тестовое задание</title>
+  <meta name="description" content="Тестовое задание: Интерактивный лендинг фитнес-платформы на ванильном JS с интеграцией калькулятора и квиза.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GymTeam &amp; UsmanovaFit — Тестовое задание">
+  <meta property="og:description" content="Адаптивный интерфейс, интерактивный квиз, калькулятор калорий и анимация при скролле.">
+  <meta property="og:image" content="https://usmanova-fit-landing-ten.vercel.app/images/hero-katya-boxing.png">
+  <meta property="og:url" content="https://usmanova-fit-landing-ten.vercel.app">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://usmanova-fit-landing-ten.vercel.app">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -35,6 +43,39 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 16px;
+      z-index: 3000;
+      padding: 12px 20px;
+      background: var(--primary-pink);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      border-radius: 0 0 12px 12px;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 0;
+      outline: none;
+      box-shadow: var(--focus-shadow);
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     img { max-width: 100%; height: auto; display: block; }
@@ -1099,20 +1140,24 @@
 </head>
 <body>
 
-  <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
+  <a href="#main" class="skip-link">Перейти к содержимому</a>
+
+  <div class="progress-container" role="progressbar" aria-label="Прогресс чтения страницы" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="reading-progress"><div class="progress-bar" id="myBar"></div></div>
 
   <header id="site-header">
     <div class="container header-wrapper">
       <a href="#" class="logo">USMANOVA<span>TEAM</span></a>
-      <nav>
-        <a href="#programs">Программы</a>
-        <a href="#results">Результаты</a>
-        <a href="#calculator">Калории</a>
-        <a href="#pricing">Тарифы</a>
-        <a href="#faq">FAQ</a>
+      <nav aria-label="Основная навигация">
+        <a href="#programs" data-nav="programs">Программы</a>
+        <a href="#results" data-nav="results">Результаты</a>
+        <a href="#calculator" data-nav="calculator">Калории</a>
+        <a href="#pricing" data-nav="pricing">Тарифы</a>
+        <a href="#faq" data-nav="faq">FAQ</a>
       </nav>
     </div>
   </header>
+
+  <main id="main">
 
   <section class="hero">
     <div class="container hero-grid">
@@ -1125,7 +1170,7 @@
       </div>
       <div class="hero-image-wrapper reveal" data-reveal-delay="100">
         <div class="hero-img skeleton">
-          <img src="images/hero-katya-boxing.png" alt="Катя Усманова с розовыми боксёрскими перчатками" width="440" height="480" loading="eager">
+          <img src="images/hero-katya-boxing.png" alt="Катя Усманова в спортивной форме" width="440" height="480" loading="eager">
         </div>
       </div>
     </div>
@@ -1136,11 +1181,11 @@
       <div class="benefits-box reveal">
         <h2>Что тебя ждёт в июне?</h2>
         <ul class="benefits-list">
-          <li><img src="images/icon-check.png" alt="">Доступ ко всем 5 марафонам сразу — живот, ягодицы, жиросжигание, стройность и тонус</li>
-          <li><img src="images/icon-check.png" alt="">Ежедневные тренировки по 20–40 минут дома, без зала и сложного инвентаря</li>
-          <li><img src="images/icon-check.png" alt="">Готовое меню и план питания — без голодовок и запретов</li>
-          <li><img src="images/icon-check.png" alt="">Старт сразу после оплаты, доступ ко всем программам на 6 месяцев</li>
-          <li><img src="images/icon-check.png" alt="">Поддержка сообщества и платформа GymTeam на телефоне и компьютере</li>
+          <li><img src="images/icon-check.png" alt="" aria-hidden="true">Доступ ко всем 5 марафонам сразу — живот, ягодицы, жиросжигание, стройность и тонус</li>
+          <li><img src="images/icon-check.png" alt="" aria-hidden="true">Ежедневные тренировки по 20–40 минут дома, без зала и сложного инвентаря</li>
+          <li><img src="images/icon-check.png" alt="" aria-hidden="true">Готовое меню и план питания — без голодовок и запретов</li>
+          <li><img src="images/icon-check.png" alt="" aria-hidden="true">Старт сразу после оплаты, доступ ко всем программам на 6 месяцев</li>
+          <li><img src="images/icon-check.png" alt="" aria-hidden="true">Поддержка сообщества и платформа GymTeam на телефоне и компьютере</li>
         </ul>
       </div>
     </div>
@@ -1162,7 +1207,7 @@
       <div class="courses-grid" id="courses-grid">
         <article class="course-card reveal" data-category="marathon" data-reveal-delay="0">
           <div class="course-img skeleton">
-            <img src="images/course-stroynost.png" alt="Стройности" loading="lazy">
+            <img src="images/course-stroynost.png" alt="Обложка марафона «Стройности»" loading="lazy">
             <span class="course-badge course-badge--hit">Хит продаж</span>
           </div>
           <div class="course-content">
@@ -1178,7 +1223,7 @@
 
         <article class="course-card reveal" data-category="intensive" data-reveal-delay="80">
           <div class="course-img skeleton">
-            <img src="images/course-fatburn.png" alt="Жиросжигание" loading="lazy">
+            <img src="images/course-fatburn.png" alt="Обложка интенсива «Жиросжигание»" loading="lazy">
             <span class="course-badge">Интенсив</span>
           </div>
           <div class="course-content">
@@ -1194,7 +1239,7 @@
 
         <article class="course-card reveal" data-category="marathon" data-reveal-delay="160">
           <div class="course-img skeleton">
-            <img src="images/course-press.png" alt="Пресс" loading="lazy">
+            <img src="images/course-press.png" alt="Обложка марафона «Пресс»" loading="lazy">
             <span class="course-badge">Марафон</span>
           </div>
           <div class="course-content">
@@ -1210,7 +1255,7 @@
 
         <article class="course-card reveal" data-category="marathon" data-reveal-delay="240">
           <div class="course-img skeleton">
-            <img src="images/course-glutes.png" alt="Ягодицы" loading="lazy">
+            <img src="images/course-glutes.png" alt="Обложка марафона «Ягодицы»" loading="lazy">
             <span class="course-badge">Новинка</span>
           </div>
           <div class="course-content">
@@ -1226,7 +1271,7 @@
 
         <article class="course-card reveal" data-category="marathon" data-reveal-delay="320">
           <div class="course-img skeleton">
-            <img src="images/course-anti-cellulite.png" alt="Тонус и антицеллюлит" loading="lazy">
+            <img src="images/course-anti-cellulite.png" alt="Обложка марафона «Тонус и антицеллюлит»" loading="lazy">
             <span class="course-badge">Марафон</span>
           </div>
           <div class="course-content">
@@ -1323,19 +1368,19 @@
 
       <div class="features-list reveal">
         <div class="feature-item">
-          <img src="images/icon-check.png" alt="">
+          <img src="images/icon-check.png" alt="" aria-hidden="true">
           <div><strong>Мобильное приложение</strong>Тренируйтесь с телефона в любое время</div>
         </div>
         <div class="feature-item">
-          <img src="images/icon-check.png" alt="">
+          <img src="images/icon-check.png" alt="" aria-hidden="true">
           <div><strong>Готовое меню</strong>Питание без подсчёта калорий и сложных рецептов</div>
         </div>
         <div class="feature-item">
-          <img src="images/icon-check.png" alt="">
+          <img src="images/icon-check.png" alt="" aria-hidden="true">
           <div><strong>Доступ 6 месяцев</strong>Все 5 программ — занимайтесь в своём темпе</div>
         </div>
         <div class="feature-item">
-          <img src="images/icon-check.png" alt="">
+          <img src="images/icon-check.png" alt="" aria-hidden="true">
           <div><strong>Без зала</strong>Достаточно коврика — инвентарь опционален</div>
         </div>
       </div>
@@ -1571,31 +1616,63 @@
 
   <script>
     const modal = document.getElementById('custom-modal');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
     const mTitle = document.getElementById('modal-title');
     const mText = document.getElementById('modal-text');
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
     const submitBtn = document.getElementById('submit-btn');
     const header = document.getElementById('site-header');
+    const readingProgress = document.getElementById('reading-progress');
+    let modalTrigger = null;
+
+    const NETWORK_ERROR_MSG = 'Не удалось отправить. Проверьте подключение к интернету и попробуйте снова.';
 
     function scrollToForm() {
       document.getElementById('lead-form').scrollIntoView({ behavior: 'smooth' });
     }
 
+    function showModal() {
+      modalTrigger = document.activeElement;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      modalCloseBtn.focus();
+    }
+
     function openModal(courseName) {
       mTitle.textContent = 'Выбор программы';
       mText.textContent = 'Вы собираетесь перейти к оформлению «' + courseName + '». Платформа GymTeam подготовит ваш личный кабинет.';
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
+      mText.setAttribute('aria-live', 'polite');
+      showModal();
     }
 
     function closeModal() {
       modal.classList.remove('active');
       modal.setAttribute('aria-hidden', 'true');
+      if (modalTrigger && typeof modalTrigger.focus === 'function') {
+        modalTrigger.focus();
+      }
+      modalTrigger = null;
     }
 
     modal.addEventListener('click', (e) => {
       if (e.target === modal) closeModal();
+    });
+
+    modal.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab' || !modal.classList.contains('active')) return;
+      const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      const nodes = Array.from(focusable).filter((el) => !el.disabled);
+      if (nodes.length === 0) return;
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     });
 
     document.addEventListener('keydown', (e) => {
@@ -1604,16 +1681,20 @@
 
     function validateName() {
       const valid = nameInput.value.trim().length > 0;
-      nameInput.classList.toggle('valid', valid && nameInput.value.length > 0);
-      nameInput.classList.toggle('invalid', !valid && nameInput.value.length > 0);
+      const touched = nameInput.value.length > 0;
+      nameInput.classList.toggle('valid', valid && touched);
+      nameInput.classList.toggle('invalid', !valid && touched);
+      nameInput.setAttribute('aria-invalid', !valid && touched ? 'true' : 'false');
       return valid;
     }
 
     function validateEmail() {
       const value = emailInput.value.trim();
       const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-      emailInput.classList.toggle('valid', valid && value.length > 0);
-      emailInput.classList.toggle('invalid', !valid && value.length > 0);
+      const touched = value.length > 0;
+      emailInput.classList.toggle('valid', valid && touched);
+      emailInput.classList.toggle('invalid', !valid && touched);
+      emailInput.setAttribute('aria-invalid', !valid && touched ? 'true' : 'false');
       return valid;
     }
 
@@ -1645,24 +1726,37 @@
           utm_campaign: document.getElementById('utm_campaign').value,
         }),
       })
-        .then((res) => res.json().then((data) => ({ res, data })))
-        .then(({ res, data }) => {
+        .then(async (res) => {
+          let data;
+          try {
+            data = await res.json();
+          } catch {
+            throw new Error('Invalid response');
+          }
           if (!res.ok || !data.ok) throw new Error(data.error || 'Ошибка отправки');
+          return data;
+        })
+        .then(() => {
           mTitle.textContent = 'Заявка принята!';
           mText.textContent = 'Спасибо, ' + name + '! Мы получили ваши данные и отправили подборку марафонов на вашу почту.';
-          modal.classList.add('active');
-          modal.setAttribute('aria-hidden', 'false');
+          mText.setAttribute('aria-live', 'polite');
+          showModal();
           event.target.reset();
           initUtmParams();
           nameInput.classList.remove('valid', 'invalid');
           emailInput.classList.remove('valid', 'invalid');
+          nameInput.setAttribute('aria-invalid', 'false');
+          emailInput.setAttribute('aria-invalid', 'false');
         })
         .catch((err) => {
           console.error('Lead form error:', err);
           mTitle.textContent = 'Не удалось отправить';
-          mText.textContent = 'Попробуйте ещё раз через минуту или напишите нам в соцсетях.';
-          modal.classList.add('active');
-          modal.setAttribute('aria-hidden', 'false');
+                    const isNetwork = !navigator.onLine || err instanceof TypeError;
+          mText.textContent = isNetwork
+            ? 'Нет связи с сервером. Проверьте интернет и отправьте заявку ещё раз.'
+            : (err.message || 'Попробуйте ещё раз через минуту или напишите нам в соцсетях.');
+          mText.setAttribute('aria-live', 'assertive');
+          showModal();
         })
         .finally(() => {
           submitBtn.disabled = false;
@@ -1670,6 +1764,19 @@
         });
 
       return false;
+    }
+
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('faq-item--open');
+      document.querySelectorAll('.faq-item').forEach((i) => {
+        i.classList.remove('faq-item--open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('faq-item--open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     }
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -1701,20 +1808,33 @@
       });
     });
 
-    document.querySelectorAll('.faq-question').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const isOpen = item.classList.contains('faq-item--open');
-        document.querySelectorAll('.faq-item').forEach((i) => {
-          i.classList.remove('faq-item--open');
-          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-        });
-        if (!isOpen) {
-          item.classList.add('faq-item--open');
-          btn.setAttribute('aria-expanded', 'true');
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const navLinks = document.querySelectorAll('nav a[data-nav]');
+    const navSections = Array.from(navLinks).map((link) => ({
+      id: link.dataset.nav,
+      el: document.getElementById(link.dataset.nav),
+      link,
+    })).filter((s) => s.el);
+
+    function setActiveNav(sectionId) {
+      navLinks.forEach((link) => {
+        const isActive = link.dataset.nav === sectionId;
+        if (isActive) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
         }
       });
-    });
+    }
+
+    if (navSections.length > 0) {
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveNav(entry.target.id);
+        });
+      }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+      navSections.forEach((s) => navObserver.observe(s.el));
+    }
 
     const progressBar = document.getElementById('myBar');
 
@@ -1722,7 +1842,9 @@
       header.classList.toggle('header--scrolled', window.scrollY > 20);
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      progressBar.style.width = (height > 0 ? (winScroll / height) * 100 : 0) + '%';
+      const pct = height > 0 ? Math.round((winScroll / height) * 100) : 0;
+      progressBar.style.width = pct + '%';
+      readingProgress.setAttribute('aria-valuenow', String(pct));
     }, { passive: true });
 
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

@@ -1,54 +1,74 @@
-# UsmanovaTeam Fitness Landing
+# Фитнес-Лендинг (Тестовое задание для GymTeam)
 
-Modern, responsive landing page for UsmanovaTeam fitness marathons by Katya Usmanova.
+Интерактивный, полностью адаптивный одностраничный сайт фитнес-экосистемы UsmanovaTeam. Сделан с упором на производительность, чистоту кода и пользовательский опыт.
 
-## Features
+## 🚀 Демо
 
-- Hero section with CTA scroll to contact form
-- Popular marathons grid with category filter
-- Program quiz (goal + time → personalized recommendation)
-- Pricing section
-- Footer contact form with validation and Telegram lead notifications
-- Reading progress bar, social proof pop-up, scroll reveal, active nav
+[👉 Посмотреть на Vercel](https://usmanova-fit-landing-ten.vercel.app)
 
-## Tech Stack
+## 🛠️ Стек технологий
 
-- HTML5, CSS3, Vanilla JavaScript
-- Vercel serverless function (`api/telegram.js`) for secure Telegram notifications
-- Google Fonts: Montserrat
+- **HTML5** — семантическая вёрстка (`<main>`, skip-link, ARIA-атрибуты)
+- **CSS3** — Flexbox, Grid, CSS-переменные, анимации, адаптив (375px–1280px+)
+- **Vanilla JavaScript** — без тяжёлых библиотек
+- **Vercel Serverless** — `/api/telegram` для отправки лидов в Telegram
 
-## Environment Variables
+## 💡 Реализованный функционал
 
-Copy `.env.example` to `.env` for local testing:
+- Hero-секция с CTA и скелетон-загрузкой изображений
+- Каталог из 5 марафонов с фильтрацией по категориям (табы)
+- Галереи результатов и отзывов
+- Блок преимуществ GymTeam
+- **Калькулятор калорий** (формула Mifflin-St Jeor)
+- Тарифы и модальное окно выбора программы
+- **FAQ-аккордеон** с `aria-expanded` / `aria-controls`
+- Форма заявки с валидацией, `aria-invalid` и обработкой сетевых ошибок
+- Отправка лидов в Telegram через serverless API
+- Прогресс-бар чтения страницы
+- Scroll reveal (Intersection Observer)
+- Sticky header с эффектом при скролле
+- Активная навигация по секциям (`aria-current`)
+- Модальное окно с focus trap и закрытием по Escape
+- UTM-метки из URL
+- Open Graph / SEO meta-теги
+
+## ⚙️ Локальный запуск
+
+npm не требуется — откройте `index.html` в браузере или:
 
 ```bash
-TELEGRAM_BOT_TOKEN=your_bot_token_from_botfather
-TELEGRAM_CHAT_ID=your_chat_id
+npx serve .
 ```
 
-**Production:** set `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` in **Vercel Dashboard → Settings → Environment Variables**, then redeploy.
-
-### How to get `TELEGRAM_CHAT_ID`
-
-1. Create a bot via [@BotFather](https://t.me/BotFather) and copy the token.
-2. Send any message to your bot (or add the bot to a group).
-3. Open `https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates` in a browser, or message [@userinfobot](https://t.me/userinfobot) for your personal chat ID.
-4. Use the `chat.id` value from the JSON response as `TELEGRAM_CHAT_ID`.
-
-## Local Development
+Для работы формы с Telegram:
 
 ```bash
+cp .env.example .env
+# заполните TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID
 npx vercel dev
 ```
 
-Or open `index.html` in a browser (form API will not work without `vercel dev`).
+## 📁 Структура
 
-## Deploy
-
-Hosted on Vercel. Push to GitHub and deploy:
-
-```bash
-npx vercel deploy --prod --yes
+```
+usmanova-fit-landing/
+├── index.html          # разметка, стили и клиентский JS
+├── api/
+│   └── telegram.js     # Vercel serverless — отправка в Telegram
+├── images/             # ассеты лендинга
+├── .env.example        # шаблон переменных окружения
+└── README.md
 ```
 
-Live site: [usmanova-fit-landing-ten.vercel.app](https://usmanova-fit-landing-ten.vercel.app)
+## 🔐 Переменные окружения
+
+| Переменная | Описание |
+|---|---|
+| `TELEGRAM_BOT_TOKEN` | Токен бота от [@BotFather](https://t.me/BotFather) |
+| `TELEGRAM_CHAT_ID` | ID чата для уведомлений о лидах |
+
+**Production:** задайте переменные в Vercel Dashboard → Settings → Environment Variables, затем redeploy.
+
+## 📄 Лицензия / примечание
+
+Тестовое задание. Изображения используются с разрешения [usmanovafit.gymteam.ru](https://usmanovafit.gymteam.ru).
