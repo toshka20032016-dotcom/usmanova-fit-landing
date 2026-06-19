@@ -2,6 +2,13 @@
  * UsmanovaTeam Fitness Landing — script.js
  */
 
+function scrollToForm() {
+  const form = document.getElementById('lead-form');
+  if (form) {
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
 function handleFormSubmit(event) {
   event.preventDefault();
 
