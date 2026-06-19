@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UsmanovaTeam — Фитнес с Катей Усмановой</title>
-  <meta name="description" content="Домашние тренировки и марафоны от Кати Усмановой. Идеальная попа, плоский живот, жиросжигание и рельеф.">
+  <title>UsmanovaTeam — ТОП-5 марафонов июня</title>
+  <meta name="description" content="ТОП-5 марафонов июня от Кати Усмановой. Стройность, пресс, ягодицы, жиросжигание — дома, по 20–30 минут, с поддержкой GymTeam.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,21 +12,17 @@
     :root {
       --primary-pink: #ff3377;
       --hover-pink: #e02262;
+      --light-pink: #fff0f4;
       --dark-gray: #1a1a1a;
-      --light-bg: #fdfeff;
       --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
       --focus-shadow: 0 0 0 4px rgba(255, 51, 119, 0.15);
       --valid-border: #4ade80;
       --invalid-border: #ef4444;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -34,18 +30,14 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      color: #222222;
-      background-color: #ffffff;
+      color: #222;
+      background: #fff;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+    img { max-width: 100%; height: auto; display: block; }
 
     .container {
       width: 100%;
@@ -54,7 +46,7 @@
       padding: 0 24px;
     }
 
-    /* Sticky glass header */
+    /* Header */
     header {
       position: sticky;
       top: 0;
@@ -86,9 +78,7 @@
       color: inherit;
     }
 
-    .logo span {
-      color: var(--primary-pink);
-    }
+    .logo span { color: var(--primary-pink); }
 
     nav a {
       color: #444;
@@ -101,62 +91,15 @@
       transition: color 0.2s;
     }
 
-    nav a:hover {
-      color: var(--primary-pink);
-    }
+    nav a:hover { color: var(--primary-pink); }
 
-    /* Hero */
-    .hero {
-      padding: 100px 0;
-      background: radial-gradient(circle at 80% 20%, #fff2f6 0%, #ffffff 50%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background-color: #fff0f4;
-      color: var(--primary-pink);
-      padding: 6px 16px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 4.5vw, 46px);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 24px;
-      color: #111111;
-      letter-spacing: -1px;
-    }
-
-    .hero h1 span {
-      color: var(--primary-pink);
-    }
-
-    .hero p {
-      font-size: 16px;
-      color: #555555;
-      margin-bottom: 35px;
-      max-width: 540px;
-    }
-
+    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background-color: var(--primary-pink);
-      color: #ffffff;
+      background: var(--primary-pink);
+      color: #fff;
       padding: 18px 38px;
       font-size: 15px;
       font-weight: 700;
@@ -167,23 +110,103 @@
       border: none;
       cursor: pointer;
       font-family: inherit;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .btn:hover:not(:disabled) {
-      background-color: var(--hover-pink);
+      background: var(--hover-pink);
       transform: translateY(-3px);
       box-shadow: 0 15px 30px rgba(255, 51, 119, 0.35);
     }
 
-    .btn:disabled {
-      opacity: 0.75;
-      cursor: wait;
+    .btn:disabled { opacity: 0.75; cursor: wait; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary-pink);
+      border: 1.5px solid #ffe0eb;
+      padding: 10px 22px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      white-space: nowrap;
+      box-shadow: none;
+      text-transform: none;
+      letter-spacing: 0;
     }
 
-    .hero-image-wrapper {
-      display: flex;
-      justify-content: center;
+    .btn-outline:hover {
+      background: var(--light-pink);
+      border-color: var(--primary-pink);
+      transform: none;
     }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 60px;
+      background: radial-gradient(circle at 80% 20%, #fff2f6 0%, #fff 50%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--light-pink);
+      color: var(--primary-pink);
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge::before {
+      content: '★';
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 46px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: #111;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 span { color: var(--primary-pink); }
+
+    .hero-subtitle {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+
+    .hero-image-wrapper { display: flex; justify-content: center; }
 
     .hero-img {
       width: 100%;
@@ -191,21 +214,75 @@
       border-radius: 30px;
       overflow: hidden;
       box-shadow: var(--card-shadow);
-      transition: box-shadow 0.3s ease;
-    }
-
-    .hero-img:hover {
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
     }
 
     .hero-img img {
       width: 100%;
-      height: auto;
-      object-fit: cover;
       aspect-ratio: 11 / 12;
+      object-fit: cover;
     }
 
-    /* Scroll reveal */
+    /* Benefits */
+    .benefits {
+      padding: 0 0 60px;
+      background: radial-gradient(circle at 80% 20%, #fff2f6 0%, #fff 50%);
+    }
+
+    .benefits-box {
+      background: #fff;
+      border-radius: 28px;
+      padding: 36px 40px;
+      box-shadow: var(--card-shadow);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .benefits-box h2 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    .benefits-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .benefits-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 15px;
+      color: #444;
+    }
+
+    .benefits-list img {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Sections common */
+    section { padding: 80px 0; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.6rem, 3vw, 34px);
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .section-header p { color: #777; font-size: 15px; }
+
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -219,26 +296,7 @@
     }
 
     /* Courses */
-    .courses {
-      padding: 100px 0;
-      background-color: #fafbfc;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-header h2 {
-      font-size: 34px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .section-header p {
-      color: #777;
-      font-size: 15px;
-    }
+    .courses { background: #fafbfc; }
 
     .category-tabs {
       display: flex;
@@ -252,7 +310,7 @@
       padding: 10px 24px;
       border-radius: 50px;
       border: 2px solid #ffe0eb;
-      background: #ffffff;
+      background: #fff;
       color: #666;
       font-family: inherit;
       font-size: 13px;
@@ -271,41 +329,47 @@
     .category-tab--active {
       background: var(--primary-pink);
       border-color: var(--primary-pink);
-      color: #ffffff;
+      color: #fff;
       box-shadow: 0 8px 20px rgba(255, 51, 119, 0.25);
     }
 
     .courses-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
       gap: 30px;
+      justify-content: center;
     }
 
     .course-card {
-      background: #ffffff;
+      flex: 0 0 calc(33.333% - 20px);
+      max-width: calc(33.333% - 20px);
+      background: #fff;
       border-radius: 24px;
       overflow: hidden;
       box-shadow: var(--card-shadow);
-      transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.45s ease, transform 0.45s ease,
+                  flex-basis 0.45s ease, max-width 0.45s ease,
+                  box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
     }
 
-    .course-card:hover {
+    .course-card:hover:not(.is-hidden) {
       transform: translateY(-6px);
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
     }
 
     .course-card.is-hidden {
       opacity: 0;
-      transform: scale(0.95);
+      transform: scale(0.92);
+      flex: 0 0 0 !important;
+      max-width: 0 !important;
+      min-width: 0 !important;
+      overflow: hidden;
       pointer-events: none;
-      position: absolute;
-      visibility: hidden;
-    }
-
-    .courses-grid {
-      position: relative;
+      margin: 0;
+      padding: 0;
+      border: none;
     }
 
     .course-img {
@@ -322,39 +386,17 @@
       transition: transform 0.4s ease;
     }
 
-    .course-card:hover .course-img img {
-      transform: scale(1.06);
-    }
-
-    .course-img-overlay {
-      position: absolute;
-      inset: 0;
-      opacity: 0.45;
-      mix-blend-mode: multiply;
-      pointer-events: none;
-    }
-
-    .img-1 .course-img-overlay {
-      background: linear-gradient(135deg, #ff6a88 0%, #ff99ac 100%);
-    }
-
-    .img-2 .course-img-overlay {
-      background: linear-gradient(135deg, #485773 0%, #765285 100%);
-    }
-
-    .img-3 .course-img-overlay {
-      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-    }
+    .course-card:hover:not(.is-hidden) .course-img img { transform: scale(1.06); }
 
     .course-badge {
       position: absolute;
-      bottom: 20px;
-      left: 20px;
-      background: rgba(255, 255, 255, 0.2);
+      top: 16px;
+      left: 16px;
+      background: rgba(255, 255, 255, 0.22);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #fff;
       padding: 6px 14px;
       border-radius: 30px;
       font-size: 11px;
@@ -364,24 +406,38 @@
       z-index: 1;
     }
 
+    .course-badge--hit {
+      background: rgba(255, 51, 119, 0.75);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
     .course-content {
       padding: 28px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      line-height: 1.5;
     }
 
     .course-content h3 {
       font-size: 20px;
       font-weight: 700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .course-meta {
+      font-size: 13px;
+      color: var(--primary-pink);
+      font-weight: 600;
       margin-bottom: 12px;
     }
 
     .course-content p {
       font-size: 14px;
-      color: #666666;
-      margin-bottom: 25px;
+      color: #666;
+      margin-bottom: 20px;
+      flex-grow: 1;
     }
 
     .course-footer {
@@ -399,29 +455,312 @@
       color: var(--primary-pink);
     }
 
-    .btn-outline {
-      background: transparent;
-      color: var(--primary-pink);
-      border: 1.5px solid #ffe0eb;
-      padding: 10px 22px;
-      font-size: 13px;
-      font-weight: 700;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: inherit;
-      white-space: nowrap;
+    .courses-cta { text-align: center; margin-top: 48px; }
+
+    /* Results */
+    .results { background: #fff; }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
     }
 
-    .btn-outline:hover {
-      background: #fff0f4;
-      border-color: var(--primary-pink);
+    .result-card {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s ease;
     }
+
+    .result-card:hover { transform: scale(1.02); }
+
+    .result-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 3 / 4;
+    }
+
+    /* Reviews */
+    .reviews { background: #fafbfc; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .review-card {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      background: #fff;
+    }
+
+    .review-card img { width: 100%; height: auto; }
+
+    /* GymTeam features */
+    .features { background: #fff; }
+
+    .features-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .feature-card {
+      background: #fafbfc;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+
+    .feature-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .feature-card-body { padding: 28px; }
+
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .feature-card p { font-size: 14px; color: #666; }
+
+    .features-list {
+      background: #fff;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: var(--card-shadow);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .feature-item img { width: 28px; height: 28px; flex-shrink: 0; }
+
+    .feature-item strong {
+      display: block;
+      font-size: 15px;
+      color: #111;
+      margin-bottom: 4px;
+    }
+
+    /* Lifestyle */
+    .lifestyle { background: #fafbfc; }
+
+    .lifestyle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .lifestyle-grid img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .lifestyle-grid img:hover { transform: scale(1.03); }
+
+    /* Pricing */
+    .pricing { background: #fff; }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: #fafbfc;
+      border-radius: 28px;
+      padding: 40px 36px;
+      box-shadow: var(--card-shadow);
+      border: 2px solid transparent;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pricing-card--popular {
+      border-color: var(--primary-pink);
+      background: #fff;
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary-pink);
+      color: #fff;
+      padding: 6px 20px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .pricing-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .pricing-card .pricing-desc {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 24px;
+    }
+
+    .pricing-price {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .price-current {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--primary-pink);
+    }
+
+    .price-old {
+      font-size: 20px;
+      color: #aaa;
+      text-decoration: line-through;
+      font-weight: 600;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    .pricing-features img { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
+
+    .pricing-card .btn { width: 100%; }
+
+    .payment-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .payment-icons span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #555;
+      letter-spacing: 0.5px;
+    }
+
+    /* FAQ */
+    .faq { background: #fafbfc; }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: left;
+      color: #222;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover { color: var(--primary-pink); }
+
+    .faq-icon {
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--primary-pink);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item--open .faq-icon { transform: rotate(45deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 24px;
+    }
+
+    .faq-item--open .faq-answer {
+      max-height: 200px;
+      padding: 0 24px 20px;
+    }
+
+    .faq-answer p { font-size: 14px; color: #666; line-height: 1.6; }
 
     /* Footer */
     .footer {
-      background-color: var(--dark-gray);
-      color: #ffffff;
+      background: var(--dark-gray);
+      color: #fff;
       padding: 80px 0 0;
     }
 
@@ -429,7 +768,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
-      align-items: center;
+      align-items: start;
       padding-bottom: 56px;
     }
 
@@ -440,21 +779,36 @@
       line-height: 1.2;
     }
 
-    .footer-info p {
-      color: #999999;
-      font-size: 15px;
+    .footer-info p { color: #999; font-size: 15px; margin-bottom: 24px; }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
     }
 
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #2b2b2b;
+      transition: background 0.2s;
+    }
+
+    .social-links a:hover { background: var(--primary-pink); }
+
+    .social-links img { width: 22px; height: 22px; }
+
     .footer-form {
-      background: #222222;
+      background: #222;
       padding: 45px;
       border-radius: 28px;
       border: 1px solid #2a2a2a;
     }
 
-    .form-group {
-      margin-bottom: 22px;
-    }
+    .form-group { margin-bottom: 22px; }
 
     .form-group label {
       display: block;
@@ -462,7 +816,7 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 9px;
-      color: #888888;
+      color: #888;
       font-weight: 600;
     }
 
@@ -472,37 +826,28 @@
       border: 1px solid #3a3a3a;
       padding: 16px 20px;
       border-radius: 12px;
-      color: #ffffff;
+      color: #fff;
       font-family: inherit;
       font-size: 15px;
-      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
     }
 
     .form-control:focus {
       outline: none;
       border-color: var(--primary-pink);
-      background: #333333;
+      background: #333;
       box-shadow: var(--focus-shadow);
     }
 
-    .form-control.valid {
-      border-color: var(--valid-border);
-    }
-
-    .form-control.invalid {
-      border-color: var(--invalid-border);
-      animation: pulse-invalid 0.5s ease;
-    }
+    .form-control.valid { border-color: var(--valid-border); }
+    .form-control.invalid { border-color: var(--invalid-border); animation: pulse-invalid 0.5s ease; }
 
     @keyframes pulse-invalid {
       0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
       50% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
     }
 
-    .form-btn {
-      width: 100%;
-      margin-top: 10px;
-    }
+    .form-btn { width: 100%; margin-top: 10px; }
 
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -512,13 +857,17 @@
       color: rgba(255, 255, 255, 0.45);
     }
 
+    .footer-bottom a {
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover { color: var(--primary-pink); }
+
     /* Modal */
     .modal-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);
@@ -531,13 +880,10 @@
       transition: opacity 0.3s ease;
     }
 
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
 
     .modal-window {
-      background: #ffffff;
+      background: #fff;
       padding: 40px;
       border-radius: 24px;
       max-width: 450px;
@@ -548,9 +894,7 @@
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .modal-overlay.active .modal-window {
-      transform: scale(1);
-    }
+    .modal-overlay.active .modal-window { transform: scale(1); }
 
     .modal-window h3 {
       font-size: 24px;
@@ -559,64 +903,56 @@
       color: #111;
     }
 
-    .modal-window p {
-      color: #555;
-      font-size: 15px;
-      margin-bottom: 25px;
-    }
+    .modal-window p { color: #555; font-size: 15px; margin-bottom: 25px; }
+    .modal-window .btn { padding: 12px 30px; font-size: 14px; }
 
-    .modal-window .btn {
-      padding: 12px 30px;
-      font-size: 14px;
-    }
-
+    /* Responsive */
     @media (max-width: 992px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero p {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-image-wrapper {
-        order: -1;
-      }
-
-      .courses-grid {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
-      .footer-wrapper {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .hero-image-wrapper { order: -1; }
+      .course-card { flex: 0 0 calc(50% - 15px); max-width: calc(50% - 15px); }
+      .results-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-cards { grid-template-columns: 1fr; }
+      .features-list { grid-template-columns: 1fr; }
+      .lifestyle-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 440px; }
+      .footer-wrapper { grid-template-columns: 1fr; text-align: center; }
+      .social-links { justify-content: center; }
     }
 
-    @media (max-width: 480px) {
-      .course-footer {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn-outline {
-        width: 100%;
-        text-align: center;
-      }
-
-      .footer-form {
-        padding: 28px;
-      }
-
-      nav a {
-        margin-left: 16px;
-        font-size: 11px;
-      }
+    @media (max-width: 600px) {
+      nav a { margin-left: 12px; font-size: 10px; }
+      .course-card { flex: 0 0 100%; max-width: 100%; }
+      .results-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .lifestyle-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .course-footer { flex-direction: column; align-items: stretch; }
+      .btn-outline { width: 100%; text-align: center; }
+      .footer-form { padding: 28px; }
+      .benefits-box { padding: 28px 24px; }
     }
+
+    /* Skeleton loaders */
+    @keyframes pulse {
+      0% { background-color: #f0f2f5; }
+      50% { background-color: #e4e7eb; }
+      100% { background-color: #f0f2f5; }
+    }
+
+    .skeleton {
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+
+    .hero-img.skeleton { min-height: 400px; }
+    .course-img.skeleton { min-height: 220px; }
+    .result-card.skeleton { min-height: 200px; }
+    .review-card.skeleton { min-height: 180px; }
+    .feature-card.skeleton { min-height: 220px; }
+    .lifestyle-photo.skeleton { min-height: 160px; }
+
+    img.skeleton { opacity: 0; }
 
     /* Reading progress bar */
     .progress-container {
@@ -652,243 +988,12 @@
       max-width: calc(100vw - 40px);
     }
 
-    .sales-pop.show {
-      left: 20px;
-    }
-
-    /* Quiz */
-    .quiz-section {
-      padding: 100px 0;
-      background: radial-gradient(circle at 20% 80%, #fff2f6 0%, #ffffff 60%);
-    }
-
-    .quiz-card {
-      max-width: 640px;
-      margin: 0 auto;
-      background: #ffffff;
-      border-radius: 28px;
-      padding: 48px 40px;
-      box-shadow: var(--card-shadow);
-    }
-
-    .quiz-step--hidden {
-      display: none;
-    }
-
-    .quiz-step h3 {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 8px;
-      text-align: center;
-    }
-
-    .quiz-step > p {
-      text-align: center;
-      color: #777;
-      font-size: 14px;
-      margin-bottom: 28px;
-    }
-
-    .quiz-options {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .quiz-option-btn {
-      width: 100%;
-      padding: 18px 24px;
-      border-radius: 16px;
-      border: 2px solid #ffe0eb;
-      background: #ffffff;
-      color: #333;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-
-    .quiz-option-btn:hover {
-      border-color: var(--primary-pink);
-      background: #fff0f4;
-      color: var(--primary-pink);
-      transform: translateY(-2px);
-    }
-
-    .quiz-result-badge {
-      display: inline-block;
-      background: #fff0f4;
-      color: var(--primary-pink);
-      padding: 6px 16px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-    }
-
-    .quiz-result h3 {
-      font-size: 26px;
-      margin-bottom: 12px;
-    }
-
-    .quiz-result p {
-      color: #666;
-      font-size: 15px;
-      margin-bottom: 28px;
-      line-height: 1.7;
-    }
-
-    .quiz-result .btn {
-      width: 100%;
-    }
-
-    .quiz-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 28px;
-    }
-
-    .quiz-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #ffe0eb;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-
-    .quiz-dot--active {
-      background: var(--primary-pink);
-      transform: scale(1.25);
-    }
-
-    /* Pricing */
-    .pricing-section {
-      padding: 100px 0;
-      background-color: #fafbfc;
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-    }
-
-    .pricing-card {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 36px 28px;
-      box-shadow: var(--card-shadow);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .pricing-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
-    }
-
-    .pricing-card--featured {
-      border: 2px solid var(--primary-pink);
-      position: relative;
-    }
-
-    .pricing-card--featured::before {
-      content: 'Популярный';
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--primary-pink);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 4px 14px;
-      border-radius: 50px;
-    }
-
-    .pricing-card h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .pricing-card .price {
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--primary-pink);
-      margin: 16px 0;
-    }
-
-    .pricing-card .price span {
-      font-size: 14px;
-      font-weight: 500;
-      color: #999;
-    }
-
-    .pricing-card ul {
-      list-style: none;
-      margin: 24px 0;
-      text-align: left;
-    }
-
-    .pricing-card li {
-      font-size: 14px;
-      color: #666;
-      padding: 8px 0;
-      border-bottom: 1px solid #f5f5f5;
-    }
-
-    .pricing-card li::before {
-      content: '✓ ';
-      color: var(--primary-pink);
-      font-weight: 700;
-    }
-
-    @media (max-width: 992px) {
-      .pricing-grid {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
-      .quiz-card {
-        padding: 32px 24px;
-      }
-    }
-
-    /* Skeleton loaders */
-    @keyframes pulse {
-      0% { background-color: #f0f2f5; }
-      50% { background-color: #e4e7eb; }
-      100% { background-color: #f0f2f5; }
-    }
-
-    .skeleton {
-      animation: pulse 1.5s infinite ease-in-out;
-    }
-
-    .hero-img.skeleton {
-      min-height: 400px;
-    }
-
-    .course-img.skeleton {
-      min-height: 220px;
-    }
-
-    img.skeleton {
-      opacity: 0;
-    }
+    .sales-pop.show { left: 20px; }
 
     /* Calorie calculator */
     .calculator {
-      padding: 100px 0;
-      background-color: #ffffff;
+      padding: 80px 0;
+      background: radial-gradient(circle at 20% 80%, #fff2f6 0%, #ffffff 60%);
     }
 
     .calculator-card {
@@ -905,9 +1010,7 @@
       gap: 20px;
     }
 
-    .calculator-form .form-group {
-      margin-bottom: 0;
-    }
+    .calculator-form .form-group { margin-bottom: 0; }
 
     .calculator-form label {
       display: block;
@@ -944,9 +1047,7 @@
       border-top: 1px solid #f0f0f0;
     }
 
-    .calculator-result.is-visible {
-      display: block;
-    }
+    .calculator-result.is-visible { display: block; }
 
     .calculator-result__numbers {
       display: flex;
@@ -958,7 +1059,7 @@
     .calculator-stat {
       flex: 1;
       min-width: 140px;
-      background: #fff0f4;
+      background: var(--light-pink);
       border-radius: 16px;
       padding: 16px 20px;
       text-align: center;
@@ -983,36 +1084,64 @@
       margin-bottom: 20px;
       line-height: 1.6;
     }
+
+    .lifestyle-photo {
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .lifestyle-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
+
   <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
 
   <header id="site-header">
     <div class="container header-wrapper">
       <a href="#" class="logo">USMANOVA<span>TEAM</span></a>
       <nav>
-        <a href="#programs">Марафоны</a>
-        <a href="#quiz">Подбор</a>
+        <a href="#programs">Программы</a>
+        <a href="#results">Результаты</a>
         <a href="#calculator">Калории</a>
         <a href="#pricing">Тарифы</a>
-        <a href="#lead-form">Контакты</a>
+        <a href="#faq">FAQ</a>
       </nav>
     </div>
   </header>
 
   <section class="hero">
     <div class="container hero-grid">
-      <div>
-        <span class="hero-badge">UsmanovaTeam теперь в GymTeam</span>
-        <h1>Твоё идеальное тело<br>под руководством<br><span>Кати Усмановой</span></h1>
-        <p>Домашние тренировки и марафоны, которые работают без диет, голода и запретов. Подтяни попу и живот, сожги жир и почувствуй лёгкость уже через несколько недель — с пользой для здоровья и поддержкой чемпионки фитнес-бикини.</p>
-        <button type="button" class="btn" onclick="scrollToForm()">Начать тренировки</button>
+      <div class="reveal">
+        <span class="hero-badge">June Top-5</span>
+        <p class="hero-subtitle">Курсы, с которыми ты будешь сиять</p>
+        <h1>ТОП-5 МАРАФОНОВ <span>ИЮНЯ</span></h1>
+        <p>5 легендарных программ Кати Усмановой, пересобранные под вашу жизнь со скидкой 91%. Дома, по 20–30 минут — а заботу о питании мы берём на себя.</p>
+        <button type="button" class="btn" onclick="scrollToForm()">Хочу в марафон</button>
       </div>
-      <div class="hero-image-wrapper">
-        <div class="hero-img">
-          <img src="images/hero-katya.png" alt="Катя Усманова — фитнес-тренер" width="440" height="480" loading="eager">
+      <div class="hero-image-wrapper reveal" data-reveal-delay="100">
+        <div class="hero-img skeleton">
+          <img src="images/hero-katya-boxing.png" alt="Катя Усманова с розовыми боксёрскими перчатками" width="440" height="480" loading="eager">
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div class="container">
+      <div class="benefits-box reveal">
+        <h2>Что тебя ждёт в июне?</h2>
+        <ul class="benefits-list">
+          <li><img src="images/icon-check.png" alt="">Доступ ко всем 5 марафонам сразу — живот, ягодицы, жиросжигание, стройность и тонус</li>
+          <li><img src="images/icon-check.png" alt="">Ежедневные тренировки по 20–40 минут дома, без зала и сложного инвентаря</li>
+          <li><img src="images/icon-check.png" alt="">Готовое меню и план питания — без голодовок и запретов</li>
+          <li><img src="images/icon-check.png" alt="">Старт сразу после оплаты, доступ ко всем программам на 6 месяцев</li>
+          <li><img src="images/icon-check.png" alt="">Поддержка сообщества и платформа GymTeam на телефоне и компьютере</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -1020,157 +1149,318 @@
   <section class="courses" id="programs">
     <div class="container">
       <div class="section-header reveal">
-        <h2>Популярные марафоны</h2>
-        <p>Программы, которые выбирают чаще всего</p>
+        <h2>Выбирай свой марафон</h2>
+        <p>5 программ под всё тело — миксуйте и занимайтесь тем, что хочется сегодня</p>
       </div>
 
-      <div class="category-tabs" role="tablist" aria-label="Фильтр программ">
+      <div class="category-tabs reveal" role="tablist" aria-label="Фильтр программ">
         <button type="button" class="category-tab category-tab--active" data-filter="all" role="tab" aria-selected="true">Все</button>
         <button type="button" class="category-tab" data-filter="marathon" role="tab" aria-selected="false">Марафоны</button>
         <button type="button" class="category-tab" data-filter="intensive" role="tab" aria-selected="false">Интенсивы</button>
       </div>
 
-      <div class="courses-grid">
+      <div class="courses-grid" id="courses-grid">
         <article class="course-card reveal" data-category="marathon" data-reveal-delay="0">
-          <div class="course-img img-1">
-            <img src="images/course-popa.png" alt="Идеальная попа" loading="lazy">
-            <div class="course-img-overlay"></div>
-            <span class="course-badge">Марафон</span>
+          <div class="course-img skeleton">
+            <img src="images/course-stroynost.png" alt="Стройности" loading="lazy">
+            <span class="course-badge course-badge--hit">Хит продаж</span>
           </div>
           <div class="course-content">
-            <div>
-              <h3>Идеальная попа</h3>
-              <p>Первый объём и подтянутость ягодиц с собственным весом. Для тех, кто впервые целенаправленно работает над попой.</p>
-            </div>
+            <h3>Стройности</h3>
+            <p class="course-meta">21 день · Марафон</p>
+            <p>Минус размер, подтянутые руки, живот и ноги. Плюс понятное питание, которое не хочется бросить через неделю.</p>
             <div class="course-footer">
               <span class="course-price">2 990 ₽</span>
-              <button type="button" class="btn-outline" onclick="openModal('Идеальная попа')">Подробнее</button>
+              <button type="button" class="btn-outline" onclick="openModal('Стройности')">Подробнее</button>
             </div>
           </div>
         </article>
 
-        <article class="course-card reveal" data-category="marathon" data-reveal-delay="100">
-          <div class="course-img img-2">
-            <img src="images/course-belly.png" alt="Плоский живот" loading="lazy">
-            <div class="course-img-overlay"></div>
-            <span class="course-badge">Марафон</span>
-          </div>
-          <div class="course-content">
-            <div>
-              <h3>Плоский живот</h3>
-              <p>Убрать вываливающийся живот, который не уходит даже после похудения. Тренировки на глубокие мышцы пресса.</p>
-            </div>
-            <div class="course-footer">
-              <span class="course-price">2 990 ₽</span>
-              <button type="button" class="btn-outline" onclick="openModal('Плоский живот')">Подробнее</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="course-card reveal" data-category="intensive" data-reveal-delay="200">
-          <div class="course-img img-3">
-            <img src="images/course-fatburn.png" alt="Жиросжигание и рельеф" loading="lazy">
-            <div class="course-img-overlay"></div>
+        <article class="course-card reveal" data-category="intensive" data-reveal-delay="80">
+          <div class="course-img skeleton">
+            <img src="images/course-fatburn.png" alt="Жиросжигание" loading="lazy">
             <span class="course-badge">Интенсив</span>
           </div>
           <div class="course-content">
-            <div>
-              <h3>Жиросжигание и рельеф</h3>
-              <p>Сжечь жир и проявить рельеф за 6 недель. Интервальные нагрузки с гантелями для подготовленных.</p>
-            </div>
+            <h3>Жиросжигание</h3>
+            <p class="course-meta">7 недель · Интенсив</p>
+            <p>Уходит жир, появляется выносливость и лёгкость во всём теле. Тренировки 4 раза в неделю для дома или зала.</p>
             <div class="course-footer">
-              <span class="course-price">3 490 ₽</span>
-              <button type="button" class="btn-outline" onclick="openModal('Жиросжигание и рельеф')">Подробнее</button>
+              <span class="course-price">2 990 ₽</span>
+              <button type="button" class="btn-outline" onclick="openModal('Жиросжигание')">Подробнее</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="course-card reveal" data-category="marathon" data-reveal-delay="160">
+          <div class="course-img skeleton">
+            <img src="images/course-press.png" alt="Пресс" loading="lazy">
+            <span class="course-badge">Марафон</span>
+          </div>
+          <div class="course-content">
+            <h3>Пресс</h3>
+            <p class="course-meta">30 дней · Марафон</p>
+            <p>Уже талия, крепкий пресс, ровная осанка и поддержка для спины. Тренировки через день по 20–40 минут.</p>
+            <div class="course-footer">
+              <span class="course-price">2 990 ₽</span>
+              <button type="button" class="btn-outline" onclick="openModal('Пресс')">Подробнее</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="course-card reveal" data-category="marathon" data-reveal-delay="240">
+          <div class="course-img skeleton">
+            <img src="images/course-glutes.png" alt="Ягодицы" loading="lazy">
+            <span class="course-badge">Новинка</span>
+          </div>
+          <div class="course-content">
+            <h3>Ягодицы</h3>
+            <p class="course-meta">30 дней · Марафон</p>
+            <p>Округлая форма, проработанная внутренняя поверхность бедра, без «ушек». 4 раза в неделю: умеренные и силовые классы.</p>
+            <div class="course-footer">
+              <span class="course-price">2 990 ₽</span>
+              <button type="button" class="btn-outline" onclick="openModal('Ягодицы')">Подробнее</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="course-card reveal" data-category="marathon" data-reveal-delay="320">
+          <div class="course-img skeleton">
+            <img src="images/course-anti-cellulite.png" alt="Тонус и антицеллюлит" loading="lazy">
+            <span class="course-badge">Марафон</span>
+          </div>
+          <div class="course-content">
+            <h3>Тонус и антицеллюлит</h3>
+            <p class="course-meta">21 день · Марафон</p>
+            <p>Ровная кожа, тонус, подтянутый силуэт. Плюс техники самомассажа — ежедневные тренировки по 15–30 минут.</p>
+            <div class="course-footer">
+              <span class="course-price">2 990 ₽</span>
+              <button type="button" class="btn-outline" onclick="openModal('Тонус и антицеллюлит')">Подробнее</button>
             </div>
           </div>
         </article>
       </div>
-    </div>
-  </section>
 
-  <section class="quiz-section" id="quiz">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>Подберите программу за 30 секунд</h2>
-        <p>Ответьте на два вопроса — мы порекомендуем марафон под вашу цель</p>
-      </div>
-
-      <div class="quiz-card reveal" id="quiz-card">
-        <div class="quiz-step" id="quiz-step-1">
-          <h3>Какая у вас главная цель?</h3>
-          <p>Выберите то, что важнее всего прямо сейчас</p>
-          <div class="quiz-options">
-            <button type="button" class="quiz-option-btn" onclick="pickQuizAnswer(1, 'goal', 'popa')">Округлая попа</button>
-            <button type="button" class="quiz-option-btn" onclick="pickQuizAnswer(1, 'goal', 'belly')">Плоский живот</button>
-            <button type="button" class="quiz-option-btn" onclick="pickQuizAnswer(1, 'goal', 'fatburn')">Жиросжигание</button>
-          </div>
-        </div>
-
-        <div class="quiz-step quiz-step--hidden" id="quiz-step-2">
-          <h3>Сколько времени готовы тренироваться?</h3>
-          <p>Подберём нагрузку под ваш ритм жизни</p>
-          <div class="quiz-options">
-            <button type="button" class="quiz-option-btn" onclick="pickQuizAnswer(2, 'time', 'short')">15–20 мин</button>
-            <button type="button" class="quiz-option-btn" onclick="pickQuizAnswer(2, 'time', 'long')">30+ мин</button>
-          </div>
-        </div>
-
-        <div class="quiz-step quiz-step--hidden quiz-result" id="quiz-step-3">
-          <span class="quiz-result-badge">Ваша рекомендация</span>
-          <h3 id="quiz-result-title">Идеальная попа</h3>
-          <p id="quiz-result-text"></p>
-          <button type="button" class="btn" id="quiz-cta-btn" onclick="scrollToForm()">Записаться на марафон</button>
-        </div>
-
-        <div class="quiz-dots" id="quiz-dots" aria-hidden="true">
-          <span class="quiz-dot quiz-dot--active" data-dot="1"></span>
-          <span class="quiz-dot" data-dot="2"></span>
-          <span class="quiz-dot" data-dot="3"></span>
-        </div>
+      <div class="courses-cta reveal">
+        <button type="button" class="btn" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Купить все сразу</button>
       </div>
     </div>
   </section>
 
-  <section class="pricing-section" id="pricing">
+  <section class="results" id="results">
     <div class="container">
       <div class="section-header reveal">
-        <h2>Тарифы и цены</h2>
-        <p>Выберите программу или пакет — доступ открывается сразу после оплаты</p>
+        <h2>Результаты наших учениц</h2>
+        <p>480 000 женщин уже прошли эти программы</p>
+      </div>
+      <div class="results-grid reveal">
+        <div class="result-card"><img src="images/result-01.png" alt="Результат до и после 1" loading="lazy"></div>
+        <div class="result-card"><img src="images/result-02.png" alt="Результат до и после 2" loading="lazy"></div>
+        <div class="result-card"><img src="images/result-03.png" alt="Результат до и после 3" loading="lazy"></div>
+        <div class="result-card"><img src="images/result-04.png" alt="Результат до и после 4" loading="lazy"></div>
+        <div class="result-card"><img src="images/result-05.png" alt="Результат до и после 5" loading="lazy"></div>
+        <div class="result-card"><img src="images/result-06.jpg" alt="Результат до и после 6" loading="lazy"></div>
+        <div class="result-card"><img src="images/result-07.jpg" alt="Результат до и после 7" loading="lazy"></div>
+        <div class="result-card"><img src="images/result-08.jpg" alt="Результат до и после 8" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Отзывы</h2>
+        <p>Реальные сообщения от участниц марафонов</p>
+      </div>
+      <div class="reviews-grid reveal">
+        <div class="review-card"><img src="images/review-01.png" alt="Отзыв участницы 1" loading="lazy"></div>
+        <div class="review-card"><img src="images/review-02.png" alt="Отзыв участницы 2" loading="lazy"></div>
+        <div class="review-card"><img src="images/review-03.png" alt="Отзыв участницы 3" loading="lazy"></div>
+        <div class="review-card"><img src="images/review-04.png" alt="Отзыв участницы 4" loading="lazy"></div>
+        <div class="review-card"><img src="images/review-05.png" alt="Отзыв участницы 5" loading="lazy"></div>
+        <div class="review-card"><img src="images/review-06.png" alt="Отзыв участницы 6" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="gymteam">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Почему выбирают GymTeam</h2>
+        <p>Платформа, на которой тренируются более 580 000 учениц</p>
       </div>
 
-      <div class="pricing-grid">
-        <article class="pricing-card reveal" data-reveal-delay="0">
-          <h3>Идеальная попа</h3>
-          <div class="price">2 990 ₽</div>
-          <ul>
-            <li>4 недели тренировок</li>
-            <li>Видео с техникой</li>
-            <li>Доступ 3 месяца</li>
-          </ul>
-          <button type="button" class="btn-outline" onclick="openModal('Идеальная попа')">Выбрать</button>
-        </article>
+      <div class="features-cards reveal">
+        <div class="feature-card">
+          <img src="images/feature-app.png" alt="Приложение GymTeam" loading="lazy">
+          <div class="feature-card-body">
+            <h3>Тренируйся где угодно</h3>
+            <p>Мобильное приложение и личный кабинет на компьютере — тренировки всегда под рукой, дома, в отпуске или в зале.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="images/feature-trainers.png" alt="Катя Усманова — профессиональный тренер" loading="lazy">
+          <div class="feature-card-body">
+            <h3>Профессиональный подход</h3>
+            <p>Катя — вице-чемпионка мира по фитнес-бикини с 15-летним опытом. Каждое движение показано и объяснено.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="images/lifestyle-03.png" alt="HD-тренировки" loading="lazy">
+          <div class="feature-card-body">
+            <h3>HD-качество</h3>
+            <p>Чёткое видео, удобный плеер и пошаговые инструкции — видно каждую деталь техники.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="images/lifestyle-04.png" alt="Поддержка экспертов" loading="lazy">
+          <div class="feature-card-body">
+            <h3>Поддержка экспертов</h3>
+            <p>Служба заботы и сообщество учениц — вы не останетесь один на один с вопросами.</p>
+          </div>
+        </div>
+      </div>
 
-        <article class="pricing-card pricing-card--featured reveal" data-reveal-delay="100">
-          <h3>Плоский живот</h3>
-          <div class="price">2 990 ₽</div>
-          <ul>
-            <li>Глубокий пресс</li>
-            <li>Без диет и голода</li>
-            <li>Доступ 3 месяца</li>
-          </ul>
-          <button type="button" class="btn" onclick="openModal('Плоский живот')">Выбрать</button>
-        </article>
+      <div class="features-list reveal">
+        <div class="feature-item">
+          <img src="images/icon-check.png" alt="">
+          <div><strong>Мобильное приложение</strong>Тренируйтесь с телефона в любое время</div>
+        </div>
+        <div class="feature-item">
+          <img src="images/icon-check.png" alt="">
+          <div><strong>Готовое меню</strong>Питание без подсчёта калорий и сложных рецептов</div>
+        </div>
+        <div class="feature-item">
+          <img src="images/icon-check.png" alt="">
+          <div><strong>Доступ 6 месяцев</strong>Все 5 программ — занимайтесь в своём темпе</div>
+        </div>
+        <div class="feature-item">
+          <img src="images/icon-check.png" alt="">
+          <div><strong>Без зала</strong>Достаточно коврика — инвентарь опционален</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <article class="pricing-card reveal" data-reveal-delay="200">
-          <h3>Жиросжигание</h3>
-          <div class="price">3 490 ₽</div>
-          <ul>
-            <li>6-недельный интенсив</li>
-            <li>Интервальные нагрузки</li>
-            <li>Доступ 4 месяца</li>
+  <section class="lifestyle">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Живи в стиле UsmanovaTeam</h2>
+        <p>Твой наставник — Катя Усманова</p>
+      </div>
+      <div class="lifestyle-grid reveal">
+        <img src="images/feature-trainers.png" alt="Катя Усманова в зале" loading="lazy">
+        <img src="images/lifestyle-01.png" alt="Катя Усманова — lifestyle 1" loading="lazy">
+        <img src="images/lifestyle-02.png" alt="Катя Усманова — lifestyle 2" loading="lazy">
+        <img src="images/lifestyle-03.png" alt="Катя Усманова — lifestyle 3" loading="lazy">
+        <img src="images/lifestyle-04.png" alt="Катя Усманова — lifestyle 4" loading="lazy">
+        <img src="images/lifestyle-05.png" alt="Катя Усманова — lifestyle 5" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Выбери свой тариф</h2>
+        <p>Старт сразу после оплаты</p>
+      </div>
+
+      <div class="pricing-grid reveal">
+        <div class="pricing-card pricing-card--popular">
+          <span class="popular-badge">Популярный</span>
+          <h3>Весь ТОП-5</h3>
+          <p class="pricing-desc">Все 5 марафонов + бонусы</p>
+          <div class="pricing-price">
+            <span class="price-current">5 990 ₽</span>
+            <span class="price-old">12 000 ₽</span>
+          </div>
+          <ul class="pricing-features">
+            <li><img src="images/icon-check.png" alt="">Стройности, Жиросжигание, Пресс, Ягодицы, Тонус</li>
+            <li><img src="images/icon-check.png" alt="">Доступ на 6 месяцев ко всем программам</li>
+            <li><img src="images/icon-check.png" alt="">Готовое меню и план питания</li>
+            <li><img src="images/icon-check.png" alt="">Дыхательные тренировки + детская программа в подарок</li>
           </ul>
-          <button type="button" class="btn-outline" onclick="openModal('Жиросжигание и рельеф')">Выбрать</button>
-        </article>
+          <button type="button" class="btn" onclick="openModal('ТОП-5 марафонов')">Забрать все</button>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Один курс</h3>
+          <p class="pricing-desc">Выберите одну программу</p>
+          <div class="pricing-price">
+            <span class="price-current">2 990 ₽</span>
+          </div>
+          <ul class="pricing-features">
+            <li><img src="images/icon-check.png" alt="">Доступ к одному выбранному марафону</li>
+            <li><img src="images/icon-check.png" alt="">Полный курс с меню и тренировками</li>
+            <li><img src="images/icon-check.png" alt="">Поддержка платформы GymTeam</li>
+            <li><img src="images/icon-check.png" alt="">Старт сразу после оплаты</li>
+          </ul>
+          <button type="button" class="btn" onclick="scrollToForm()">Купить курс</button>
+        </div>
+      </div>
+
+      <div class="payment-icons reveal">
+        <span>VISA</span>
+        <span>Mastercard</span>
+        <span>МИР</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Часто задаваемые вопросы</h2>
+        <p>Остались вопросы? Мы ответили на главные</p>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span>Подойдёт, если я никогда не занималась?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Да. Программы рассчитаны на любой уровень, начать можно с нуля. Катя показывает каждое движение.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span>Нужен ли зал или оборудование?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Нет. Всё дома — нужен только коврик. Для части программ опционально: резинки, гантели до 15 кг.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span>Я живу не в России, смогу заниматься?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Да. Доступ из любой страны, оплатить можно картой иностранного банка.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span>Как получить доступ?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Сразу после оплаты на почту придёт письмо со входом на платформу GymTeam.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span>Как долго действует доступ?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>При покупке ТОП-5 — 6 месяцев ко всем программам. Можно проходить в своём темпе и возвращаться к тренировкам.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1179,8 +1469,16 @@
     <div class="container">
       <div class="footer-wrapper reveal">
         <div class="footer-info">
-          <h2>Остались вопросы?</h2>
-          <p>Напишите нам — поможем подобрать программу под вашу цель и уровень. Это бесплатно и быстро. Более 580 000 учениц уже тренируются с Катей.</p>
+          <h2>Хочешь в команду?</h2>
+          <p>Оставь заявку — поможем подобрать программу под вашу цель и уровень. Бесплатно и быстро. Более 580 000 учениц уже тренируются с Катей.</p>
+          <div class="social-links">
+            <a href="https://t.me/UsmanovaSport_bot" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+              <img src="images/icon-telegram.svg" alt="">
+            </a>
+            <a href="https://vk.ru/usmanovateam" target="_blank" rel="noopener noreferrer" aria-label="VK">
+              <img src="images/icon-vk.svg" alt="">
+            </a>
+          </div>
         </div>
         <div>
           <form class="footer-form" id="contact-form" onsubmit="return handleFormSubmit(event)" novalidate>
@@ -1192,19 +1490,17 @@
               <label for="email">Email</label>
               <input type="email" id="email" name="email" class="form-control" placeholder="your@email.com" required autocomplete="email">
             </div>
-            <button type="submit" class="btn form-btn" id="submit-btn">Отправить</button>
+            <button type="submit" class="btn form-btn" id="submit-btn">Хочу в команду</button>
           </form>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container">
-        <p>&copy; 2026 UsmanovaTeam. Все права защищены.</p>
+        <p>&copy; 2026 UsmanovaTeam. <a href="https://usmanovafit.gymteam.ru/protection_fitnes" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a> · <a href="https://usmanovafit.gymteam.ru/oferta_fitnes" target="_blank" rel="noopener noreferrer">Оферта</a></p>
       </div>
     </div>
   </footer>
-
-  <div class="sales-pop" id="salesPop">Мария только что приобрела марафон «Идеальная попа» 🔥</div>
 
   <div class="modal-overlay" id="custom-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-modal="true">
     <div class="modal-window">
@@ -1229,7 +1525,7 @@
 
     function openModal(courseName) {
       mTitle.textContent = 'Выбор программы';
-      mText.textContent = `Вы собираетесь перейти к оформлению курса «${courseName}». Наша платформа GymTeam подготовит ваш личный кабинет.`;
+      mText.textContent = 'Вы собираетесь перейти к оформлению «' + courseName + '». Платформа GymTeam подготовит ваш личный кабинет.';
       modal.classList.add('active');
       modal.setAttribute('aria-hidden', 'false');
     }
@@ -1269,113 +1565,28 @@
 
     function handleFormSubmit(event) {
       event.preventDefault();
-
       const nameValid = validateName();
       const emailValid = validateEmail();
       if (!nameValid || !emailValid) return false;
 
       const name = nameInput.value.trim();
-      const email = emailInput.value.trim();
       const originalText = submitBtn.textContent;
       submitBtn.disabled = true;
       submitBtn.textContent = 'Отправка...';
 
-      fetch('/api/telegram', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email }),
-      })
-        .then((res) => res.json().then((data) => ({ res, data })))
-        .then(({ res, data }) => {
-          if (!res.ok || !data.ok) {
-            throw new Error(data.error || 'Ошибка отправки');
-          }
-
-          mTitle.textContent = 'Заявка принята!';
-          mText.textContent = `Спасибо, ${name}! Мы получили ваши данные и отправили подборку марафонов на вашу почту.`;
-          modal.classList.add('active');
-          modal.setAttribute('aria-hidden', 'false');
-
-          event.target.reset();
-          nameInput.classList.remove('valid', 'invalid');
-          emailInput.classList.remove('valid', 'invalid');
-        })
-        .catch((err) => {
-          console.error('Lead form error:', err);
-          mTitle.textContent = 'Не удалось отправить';
-          mText.textContent = 'Попробуйте ещё раз через минуту или напишите нам в соцсетях.';
-          modal.classList.add('active');
-          modal.setAttribute('aria-hidden', 'false');
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalText;
-        });
+      setTimeout(() => {
+        mTitle.textContent = 'Заявка принята!';
+        mText.textContent = 'Спасибо, ' + name + '! Мы получили ваши данные и отправили подборку марафонов на вашу почту.';
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        event.target.reset();
+        nameInput.classList.remove('valid', 'invalid');
+        emailInput.classList.remove('valid', 'invalid');
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }, 1500);
 
       return false;
-    }
-
-    const quizAnswers = {};
-    let quizStep = 1;
-
-    const quizRecommendations = {
-      popa: {
-        title: 'Идеальная попа',
-        short: 'Марафон «Идеальная попа» — короткие тренировки по 15–20 минут. Идеально, если мало времени, но хочется заметный результат в ягодицах.',
-        long: 'Марафон «Идеальная попа» — полноценные комплексы на 30+ минут для максимального объёма и подтянутости.',
-      },
-      belly: {
-        title: 'Плоский живот',
-        short: 'Марафон «Плоский живот» — экспресс-тренировки на глубокий пресс. Удобно вписать в плотный график.',
-        long: 'Марафон «Плоский живот» — развёрнутые занятия на все зоны пресса для стойкого результата.',
-      },
-      fatburn: {
-        title: 'Жиросжигание и рельеф',
-        short: 'Интенсив «Жиросжигание» — короткие интервалы для сжигания жира без зала.',
-        long: 'Интенсив «Жиросжигание» — расширенные тренировки с гантелями для рельефа за 6 недель.',
-      },
-    };
-
-    function updateQuizDots(step) {
-      document.querySelectorAll('.quiz-dot').forEach((dot) => {
-        dot.classList.toggle('quiz-dot--active', Number(dot.dataset.dot) === step);
-      });
-    }
-
-    function pickQuizAnswer(step, field, value) {
-      quizAnswers[field] = value;
-      document.getElementById('quiz-step-' + step).classList.add('quiz-step--hidden');
-
-      if (step < 2) {
-        quizStep = step + 1;
-        document.getElementById('quiz-step-' + quizStep).classList.remove('quiz-step--hidden');
-        updateQuizDots(quizStep);
-      } else {
-        showQuizResult();
-      }
-    }
-
-    function showQuizResult() {
-      const rec = quizRecommendations[quizAnswers.goal] || quizRecommendations.popa;
-      const text = quizAnswers.time === 'short' ? rec.short : rec.long;
-
-      document.getElementById('quiz-result-title').textContent = rec.title;
-      document.getElementById('quiz-result-text').textContent = text;
-
-      quizStep = 3;
-      document.getElementById('quiz-step-3').classList.remove('quiz-step--hidden');
-      updateQuizDots(3);
-
-      document.getElementById('quiz-card').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    function nextQuizStep() {
-      if (quizStep < 3) {
-        document.getElementById('quiz-step-' + quizStep).classList.add('quiz-step--hidden');
-        quizStep += 1;
-        document.getElementById('quiz-step-' + quizStep).classList.remove('quiz-step--hidden');
-        updateQuizDots(quizStep);
-      }
     }
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -1396,63 +1607,35 @@
     categoryTabs.forEach((tab) => {
       tab.addEventListener('click', () => {
         const filter = tab.dataset.filter;
-
         categoryTabs.forEach((t) => {
           t.classList.toggle('category-tab--active', t === tab);
           t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
         });
-
         courseCards.forEach((card) => {
-          const category = card.dataset.category;
-          const show = filter === 'all' || category === filter;
+          const show = filter === 'all' || card.dataset.category === filter;
           card.classList.toggle('is-hidden', !show);
         });
       });
     });
 
-    const progressBar = document.getElementById('myBar');
-    const sections = document.querySelectorAll('section[id]');
+    document.querySelectorAll('.faq-question').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('faq-item--open');
+        document.querySelectorAll('.faq-item').forEach((i) => {
+          i.classList.remove('faq-item--open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('faq-item--open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
 
     window.addEventListener('scroll', () => {
       header.classList.toggle('header--scrolled', window.scrollY > 20);
-
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-      progressBar.style.width = scrolled + '%';
-
-      const scrollY = window.pageYOffset;
-      sections.forEach((current) => {
-        const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop - 100;
-        const sectionId = current.getAttribute('id');
-        const navLink = document.querySelector(`nav a[href*=${sectionId}]`);
-        if (navLink) {
-          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLink.style.color = 'var(--primary-pink)';
-          } else {
-            navLink.style.color = '';
-          }
-        }
-      });
     }, { passive: true });
-
-    const names = ['Ольга', 'Татьяна', 'Ирина', 'Елена', 'Наталья'];
-    const courses = ['«Идеальная попа»', '«Плоский живот»', 'тариф «Всё включено»'];
-    const pop = document.getElementById('salesPop');
-
-    function showFakeSale() {
-      const randomName = names[Math.floor(Math.random() * names.length)];
-      const randomCourse = courses[Math.floor(Math.random() * courses.length)];
-      pop.innerText = `${randomName} только что приобрела ${randomCourse} 🔥`;
-      pop.classList.add('show');
-      setTimeout(() => pop.classList.remove('show'), 4000);
-    }
-
-    setTimeout(() => {
-      setInterval(showFakeSale, 15000);
-      showFakeSale();
-    }, 3000);
 
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', (e) => {
@@ -1464,6 +1647,69 @@
           target.scrollIntoView({ behavior: 'smooth' });
         }
       });
+    });
+
+    function initImageSkeletons() {
+      document.querySelectorAll('img').forEach((img) => {
+        const wrapper = img.parentElement;
+        const isWrapped = wrapper && (
+          wrapper.classList.contains('hero-img') ||
+          wrapper.classList.contains('course-img')
+        );
+
+        const clearSkeleton = () => {
+          img.classList.remove('skeleton');
+          img.parentElement?.classList.remove('skeleton');
+        };
+
+        if (isWrapped && !wrapper.classList.contains('skeleton')) {
+          wrapper.classList.add('skeleton');
+        }
+
+        if (img.complete && img.naturalHeight > 0) {
+          clearSkeleton();
+        } else {
+          img.classList.add('skeleton');
+          img.addEventListener('load', clearSkeleton);
+          img.addEventListener('error', clearSkeleton);
+        }
+      });
+    }
+
+    function initUtmParams() {
+      const urlParams = new URLSearchParams(window.location.search);
+      document.getElementById('utm_source').value = urlParams.get('utm_source') || 'direct';
+      document.getElementById('utm_medium').value = urlParams.get('utm_medium') || 'none';
+      document.getElementById('utm_campaign').value = urlParams.get('utm_campaign') || 'none';
+    }
+
+    function calculateCalories(event) {
+      event.preventDefault();
+
+      const weight = parseFloat(document.getElementById('calc-weight').value);
+      const height = parseFloat(document.getElementById('calc-height').value);
+      const age = parseFloat(document.getElementById('calc-age').value);
+      const gender = document.getElementById('calc-gender').value;
+
+      if (!weight || !height || !age) return false;
+
+      const bmr = gender === 'male'
+        ? 10 * weight + 6.25 * height - 5 * age + 5
+        : 10 * weight + 6.25 * height - 5 * age - 161;
+
+      const maintenance = Math.round(bmr);
+      const deficit = Math.round(bmr * 0.85);
+
+      document.getElementById('calc-bmr').textContent = String(maintenance);
+      document.getElementById('calc-deficit').textContent = String(deficit);
+      document.getElementById('calculator-result').classList.add('is-visible');
+
+      return false;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initUtmParams();
+      initImageSkeletons();
     });
   </script>
 </body>
