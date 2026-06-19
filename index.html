@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UsmanovaTeam — Фитнес с Катей Усмановой</title>
+  <meta name="description" content="Домашние тренировки и марафоны от Кати Усмановой. Идеальная попа, плоский живот, жиросжигание и рельеф.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">Usmanova<span>Team</span></a>
+      <nav class="nav">
+        <a href="#courses">Марафоны</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <span class="badge">UsmanovaTeam теперь в GymTeam</span>
+          <h1 class="hero__title">
+            Твоё идеальное тело под руководством <span class="accent">Кати Усмановой</span>
+          </h1>
+          <p class="hero__text">
+            Домашние тренировки и марафоны, которые работают без диет, голода и запретов.
+            Подтяни попу и живот, сожги жир и почувствуй лёгкость уже через несколько недель —
+            с пользой для здоровья и поддержкой чемпионки фитнес-бикини.
+          </p>
+          <a href="#contact" class="btn btn--primary btn--lg">Начать тренировки</a>
+        </div>
+        <div class="hero__media">
+          <div class="hero__image-wrap">
+            <img src="images/hero-katya.png" alt="Катя Усманова — фитнес-тренер" width="600" height="700" loading="eager">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="courses" id="courses">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Популярные марафоны</h2>
+          <p class="section-subtitle">Программы, которые выбирают чаще всего</p>
+        </div>
+
+        <div class="courses__grid">
+          <article class="course-card course-card--1">
+            <div class="course-card__visual">
+              <img src="images/course-popa.png" alt="Идеальная попа" loading="lazy">
+              <div class="course-card__overlay"></div>
+            </div>
+            <div class="course-card__body">
+              <span class="course-card__badge">Марафон</span>
+              <h3 class="course-card__title">Идеальная попа</h3>
+              <p class="course-card__desc">
+                Первый объём и подтянутость ягодиц с собственным весом. Для тех, кто впервые целенаправленно работает над попой.
+              </p>
+              <div class="course-card__footer">
+                <span class="course-card__price">2 990 ₽</span>
+                <button type="button" class="btn btn--outline">Подробнее</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card course-card--2">
+            <div class="course-card__visual">
+              <img src="images/course-belly.png" alt="Плоский живот" loading="lazy">
+              <div class="course-card__overlay"></div>
+            </div>
+            <div class="course-card__body">
+              <span class="course-card__badge">Марафон</span>
+              <h3 class="course-card__title">Плоский живот</h3>
+              <p class="course-card__desc">
+                Убрать вываливающийся живот, который не уходит даже после похудения. Тренировки на глубокие мышцы пресса.
+              </p>
+              <div class="course-card__footer">
+                <span class="course-card__price">2 990 ₽</span>
+                <button type="button" class="btn btn--outline">Подробнее</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card course-card--3">
+            <div class="course-card__visual">
+              <img src="images/course-fatburn.png" alt="Жиросжигание и рельеф" loading="lazy">
+              <div class="course-card__overlay"></div>
+            </div>
+            <div class="course-card__body">
+              <span class="course-card__badge">Интенсив</span>
+              <h3 class="course-card__title">Жиросжигание и рельеф</h3>
+              <p class="course-card__desc">
+                Сжечь жир и проявить рельеф за 6 недель. Интервальные нагрузки с гантелями для подготовленных.
+              </p>
+              <div class="course-card__footer">
+                <span class="course-card__price">3 490 ₽</span>
+                <button type="button" class="btn btn--outline">Подробнее</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container footer__grid">
+      <div class="footer__info">
+        <h2 class="footer__title">Остались вопросы?</h2>
+        <p class="footer__text">
+          Напишите нам — поможем подобрать программу под вашу цель и уровень.
+          Это бесплатно и быстро. Более 580 000 учениц уже тренируются с Катей.
+        </p>
+      </div>
+      <form class="contact-form" id="contact-form" onsubmit="return handleFormSubmit(event)">
+        <div class="form-group">
+          <label for="name">Ваше имя</label>
+          <input type="text" id="name" name="name" placeholder="Как к вам обращаться?" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Отправить</button>
+      </form>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>&copy; 2026 UsmanovaTeam. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
