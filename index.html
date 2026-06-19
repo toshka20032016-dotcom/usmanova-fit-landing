@@ -438,8 +438,8 @@
 
     .courses-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 30px;
       align-items: stretch;
     }
 
@@ -452,18 +452,44 @@
       flex-direction: column;
       height: 100%;
       overflow: hidden;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease,
-                  opacity 0.45s ease, border-color 0.4s ease;
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      transition:
+        opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
     }
 
-    .course-card:hover:not(.is-hidden) {
-      transform: translateY(-8px);
+    .course-card:hover:not(.hidden):not(.fade-out) {
+      transform: translateY(-8px) scale(1);
       box-shadow: 0 20px 40px rgba(255, 51, 119, 0.12);
       border-color: rgba(255, 51, 119, 0.2);
     }
 
-    .course-card.is-hidden {
+    .course-card.fade-out {
+      opacity: 0;
+      transform: scale(0.92);
+      pointer-events: none;
+    }
+
+    .course-card.hidden {
       display: none;
+    }
+
+    .course-card.fade-in {
+      animation: cardAppear 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes cardAppear {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     .course-img {
@@ -499,7 +525,7 @@
       pointer-events: none;
     }
 
-    .course-card:hover:not(.is-hidden) .course-img::after {
+    .course-card:hover:not(.hidden):not(.fade-out) .course-img::after {
       left: 125%;
     }
 
@@ -510,7 +536,7 @@
       transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .course-card:hover:not(.is-hidden) .course-img img { transform: scale(1.05); }
+    .course-card:hover:not(.hidden):not(.fade-out) .course-img img { transform: scale(1.05); }
 
     .course-content {
       padding: 28px;
@@ -564,24 +590,6 @@
       min-width: 120px;
       flex-shrink: 0;
       justify-content: center;
-    }
-
-    @media (min-width: 992px) {
-      .courses-grid {
-        grid-template-columns: repeat(6, 1fr);
-      }
-
-      .course-card:not(.is-hidden) {
-        grid-column: span 2;
-      }
-
-      .courses-grid:has(.course-card:nth-child(5):last-child:not(.is-hidden)) .course-card:not(.is-hidden):nth-child(4) {
-        grid-column: 2 / span 2;
-      }
-
-      .courses-grid:has(.course-card:nth-child(5):last-child:not(.is-hidden)) .course-card:not(.is-hidden):nth-child(5) {
-        grid-column: 4 / span 2;
-      }
     }
 
     .course-price {
@@ -2232,18 +2240,48 @@
 
     const categoryTabs = document.querySelectorAll('.category-tab');
     const courseCards = document.querySelectorAll('.course-card');
+    const FILTER_ANIM_MS = 300;
 
     categoryTabs.forEach((tab) => {
       tab.addEventListener('click', () => {
-        const filter = tab.dataset.filter;
+        const filterValue = tab.dataset.filter;
+
         categoryTabs.forEach((t) => {
           t.classList.toggle('category-tab--active', t === tab);
           t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
         });
+
         courseCards.forEach((card) => {
-          const show = filter === 'all' || card.dataset.category === filter;
-          card.classList.toggle('is-hidden', !show);
+          const cardCategory = card.dataset.category;
+          const shouldShow = filterValue === 'all' || cardCategory === filterValue;
+
+          if (!shouldShow) {
+            card.classList.add('fade-out');
+            card.classList.remove('fade-in');
+          } else {
+            card.classList.remove('fade-out');
+          }
         });
+
+        setTimeout(() => {
+          courseCards.forEach((card) => {
+            const cardCategory = card.dataset.category;
+            const shouldShow = filterValue === 'all' || cardCategory === filterValue;
+
+            if (shouldShow) {
+              card.classList.remove('hidden');
+              card.classList.remove('fade-out');
+              if (filterValue !== 'all') {
+                card.classList.remove('fade-in');
+                void card.offsetWidth;
+                card.classList.add('fade-in');
+              }
+            } else {
+              card.classList.add('hidden');
+              card.classList.remove('fade-in');
+            }
+          });
+        }, FILTER_ANIM_MS);
       });
     });
 
