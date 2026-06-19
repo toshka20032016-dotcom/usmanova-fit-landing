@@ -1349,12 +1349,64 @@
         <p>Твой наставник — Катя Усманова</p>
       </div>
       <div class="lifestyle-grid reveal">
-        <img src="images/feature-trainers.png" alt="Катя Усманова в зале" loading="lazy">
-        <img src="images/lifestyle-01.png" alt="Катя Усманова — lifestyle 1" loading="lazy">
-        <img src="images/lifestyle-02.png" alt="Катя Усманова — lifestyle 2" loading="lazy">
-        <img src="images/lifestyle-03.png" alt="Катя Усманова — lifestyle 3" loading="lazy">
-        <img src="images/lifestyle-04.png" alt="Катя Усманова — lifestyle 4" loading="lazy">
-        <img src="images/lifestyle-05.png" alt="Катя Усманова — lifestyle 5" loading="lazy">
+        <div class="lifestyle-photo skeleton"><img src="images/feature-trainers.png" alt="Катя Усманова в зале" loading="lazy"></div>
+        <div class="lifestyle-photo skeleton"><img src="images/lifestyle-01.png" alt="Катя Усманова — lifestyle 1" loading="lazy"></div>
+        <div class="lifestyle-photo skeleton"><img src="images/lifestyle-02.png" alt="Катя Усманова — lifestyle 2" loading="lazy"></div>
+        <div class="lifestyle-photo skeleton"><img src="images/lifestyle-03.png" alt="Катя Усманова — lifestyle 3" loading="lazy"></div>
+        <div class="lifestyle-photo skeleton"><img src="images/lifestyle-04.png" alt="Катя Усманова — lifestyle 4" loading="lazy"></div>
+        <div class="lifestyle-photo skeleton"><img src="images/lifestyle-05.png" alt="Катя Усманова — lifestyle 5" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="calculator reveal" id="calculator">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 id="calculator-heading">Калькулятор калорий</h2>
+        <p>Узнайте свою норму по формуле Mifflin-St Jeor</p>
+      </div>
+
+      <div class="calculator-card reveal">
+        <form class="calculator-form" id="calculator-form" onsubmit="return calculateCalories(event)" aria-labelledby="calculator-heading">
+          <fieldset class="calculator-fieldset">
+            <legend class="visually-hidden">Параметры для расчёта калорий</legend>
+          <div class="form-group">
+            <label for="calc-weight">Вес (кг)</label>
+            <input type="number" id="calc-weight" class="calc-control" min="30" max="250" step="0.1" placeholder="65" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="calc-height">Рост (см)</label>
+            <input type="number" id="calc-height" class="calc-control" min="120" max="230" step="1" placeholder="168" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="calc-age">Возраст</label>
+            <input type="number" id="calc-age" class="calc-control" min="14" max="99" step="1" placeholder="30" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="calc-gender">Пол</label>
+            <select id="calc-gender" class="calc-control" aria-label="Пол">
+              <option value="female" selected>Женский</option>
+              <option value="male">Мужской</option>
+            </select>
+          </div>
+          <button type="submit" class="btn">Рассчитать</button>
+          </fieldset>
+        </form>
+
+        <div class="calculator-result" id="calculator-result" aria-live="polite">
+          <div class="calculator-result__numbers">
+            <div class="calculator-stat">
+              <div class="calculator-stat__value" id="calc-bmr">—</div>
+              <div class="calculator-stat__label">Базовый обмен (ккал/день)</div>
+            </div>
+            <div class="calculator-stat">
+              <div class="calculator-stat__value" id="calc-deficit">—</div>
+              <div class="calculator-stat__label">Для мягкого дефицита (~85%)</div>
+            </div>
+          </div>
+          <p class="calculator-cta">Чтобы удерживать этот вес вкусно и без срывов, забирай Гайд по питанию в тарифе «Всё включено»</p>
+          <button type="button" class="btn" onclick="document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' })">Смотреть тарифы</button>
+        </div>
       </div>
     </div>
   </section>
@@ -1417,53 +1469,55 @@
 
       <div class="faq-list reveal">
         <div class="faq-item">
-          <button type="button" class="faq-question" aria-expanded="false">
+          <button type="button" class="faq-question" id="faq-question-1" aria-expanded="false" aria-controls="faq-answer-1" onclick="toggleFaq(this)">
             <span>Подойдёт, если я никогда не занималась?</span>
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1">
             <p>Да. Программы рассчитаны на любой уровень, начать можно с нуля. Катя показывает каждое движение.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button type="button" class="faq-question" aria-expanded="false">
+          <button type="button" class="faq-question" id="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2" onclick="toggleFaq(this)">
             <span>Нужен ли зал или оборудование?</span>
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2">
             <p>Нет. Всё дома — нужен только коврик. Для части программ опционально: резинки, гантели до 15 кг.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button type="button" class="faq-question" aria-expanded="false">
+          <button type="button" class="faq-question" id="faq-question-3" aria-expanded="false" aria-controls="faq-answer-3" onclick="toggleFaq(this)">
             <span>Я живу не в России, смогу заниматься?</span>
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3">
             <p>Да. Доступ из любой страны, оплатить можно картой иностранного банка.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button type="button" class="faq-question" aria-expanded="false">
+          <button type="button" class="faq-question" id="faq-question-4" aria-expanded="false" aria-controls="faq-answer-4" onclick="toggleFaq(this)">
             <span>Как получить доступ?</span>
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4">
             <p>Сразу после оплаты на почту придёт письмо со входом на платформу GymTeam.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button type="button" class="faq-question" aria-expanded="false">
+          <button type="button" class="faq-question" id="faq-question-5" aria-expanded="false" aria-controls="faq-answer-5" onclick="toggleFaq(this)">
             <span>Как долго действует доступ?</span>
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5">
             <p>При покупке ТОП-5 — 6 месяцев ко всем программам. Можно проходить в своём темпе и возвращаться к тренировкам.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  </main>
 
   <footer class="footer" id="lead-form">
     <div class="container">
@@ -1473,22 +1527,25 @@
           <p>Оставь заявку — поможем подобрать программу под вашу цель и уровень. Бесплатно и быстро. Более 580 000 учениц уже тренируются с Катей.</p>
           <div class="social-links">
             <a href="https://t.me/UsmanovaSport_bot" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-              <img src="images/icon-telegram.svg" alt="">
+              <img src="images/icon-telegram.svg" alt="" aria-hidden="true">
             </a>
-            <a href="https://vk.ru/usmanovateam" target="_blank" rel="noopener noreferrer" aria-label="VK">
-              <img src="images/icon-vk.svg" alt="">
+            <a href="https://vk.ru/usmanovateam" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+              <img src="images/icon-vk.svg" alt="" aria-hidden="true">
             </a>
           </div>
         </div>
         <div>
           <form class="footer-form" id="contact-form" onsubmit="return handleFormSubmit(event)" novalidate>
+            <input type="hidden" id="utm_source" name="utm_source" value="">
+            <input type="hidden" id="utm_medium" name="utm_medium" value="">
+            <input type="hidden" id="utm_campaign" name="utm_campaign" value="">
             <div class="form-group">
               <label for="name">Ваше имя</label>
-              <input type="text" id="name" name="name" class="form-control" placeholder="Как к вам обращаться?" required autocomplete="name">
+              <input type="text" id="name" name="name" class="form-control" placeholder="Как к вам обращаться?" required aria-required="true" autocomplete="name">
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" class="form-control" placeholder="your@email.com" required autocomplete="email">
+              <input type="email" id="email" name="email" class="form-control" placeholder="your@email.com" required aria-required="true" autocomplete="email">
             </div>
             <button type="submit" class="btn form-btn" id="submit-btn">Хочу в команду</button>
           </form>
@@ -1501,6 +1558,8 @@
       </div>
     </div>
   </footer>
+
+  <div class="sales-pop" id="salesPop">Мария только что приобрела марафон «Стройности» 🔥</div>
 
   <div class="modal-overlay" id="custom-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-modal="true">
     <div class="modal-window">
@@ -1570,21 +1629,45 @@
       if (!nameValid || !emailValid) return false;
 
       const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
       const originalText = submitBtn.textContent;
       submitBtn.disabled = true;
       submitBtn.textContent = 'Отправка...';
 
-      setTimeout(() => {
-        mTitle.textContent = 'Заявка принята!';
-        mText.textContent = 'Спасибо, ' + name + '! Мы получили ваши данные и отправили подборку марафонов на вашу почту.';
-        modal.classList.add('active');
-        modal.setAttribute('aria-hidden', 'false');
-        event.target.reset();
-        nameInput.classList.remove('valid', 'invalid');
-        emailInput.classList.remove('valid', 'invalid');
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-      }, 1500);
+      fetch('/api/telegram', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          utm_source: document.getElementById('utm_source').value,
+          utm_medium: document.getElementById('utm_medium').value,
+          utm_campaign: document.getElementById('utm_campaign').value,
+        }),
+      })
+        .then((res) => res.json().then((data) => ({ res, data })))
+        .then(({ res, data }) => {
+          if (!res.ok || !data.ok) throw new Error(data.error || 'Ошибка отправки');
+          mTitle.textContent = 'Заявка принята!';
+          mText.textContent = 'Спасибо, ' + name + '! Мы получили ваши данные и отправили подборку марафонов на вашу почту.';
+          modal.classList.add('active');
+          modal.setAttribute('aria-hidden', 'false');
+          event.target.reset();
+          initUtmParams();
+          nameInput.classList.remove('valid', 'invalid');
+          emailInput.classList.remove('valid', 'invalid');
+        })
+        .catch((err) => {
+          console.error('Lead form error:', err);
+          mTitle.textContent = 'Не удалось отправить';
+          mText.textContent = 'Попробуйте ещё раз через минуту или напишите нам в соцсетях.';
+          modal.classList.add('active');
+          modal.setAttribute('aria-hidden', 'false');
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        });
 
       return false;
     }
@@ -1633,8 +1716,13 @@
       });
     });
 
+    const progressBar = document.getElementById('myBar');
+
     window.addEventListener('scroll', () => {
       header.classList.toggle('header--scrolled', window.scrollY > 20);
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      progressBar.style.width = (height > 0 ? (winScroll / height) * 100 : 0) + '%';
     }, { passive: true });
 
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -1650,16 +1738,15 @@
     });
 
     function initImageSkeletons() {
+      const skeletonWrappers = ['hero-img', 'course-img', 'result-card', 'review-card', 'feature-card', 'lifestyle-photo'];
+
       document.querySelectorAll('img').forEach((img) => {
         const wrapper = img.parentElement;
-        const isWrapped = wrapper && (
-          wrapper.classList.contains('hero-img') ||
-          wrapper.classList.contains('course-img')
-        );
+        const isWrapped = wrapper && skeletonWrappers.some((cls) => wrapper.classList.contains(cls));
 
         const clearSkeleton = () => {
           img.classList.remove('skeleton');
-          img.parentElement?.classList.remove('skeleton');
+          wrapper?.classList.remove('skeleton');
         };
 
         if (isWrapped && !wrapper.classList.contains('skeleton')) {
@@ -1710,6 +1797,21 @@
     document.addEventListener('DOMContentLoaded', () => {
       initUtmParams();
       initImageSkeletons();
+
+      const names = ['Ольга', 'Татьяна', 'Ирина', 'Елена', 'Наталья'];
+      const courses = ['«Стройности»', '«Пресс»', 'тариф «Всё включено»'];
+      const pop = document.getElementById('salesPop');
+
+      function showFakeSale() {
+        pop.textContent = names[Math.floor(Math.random() * names.length)] + ' только что приобрела ' + courses[Math.floor(Math.random() * courses.length)] + ' 🔥';
+        pop.classList.add('show');
+        setTimeout(() => pop.classList.remove('show'), 4000);
+      }
+
+      setTimeout(() => {
+        setInterval(showFakeSale, 15000);
+        showFakeSale();
+      }, 3000);
     });
   </script>
 </body>
