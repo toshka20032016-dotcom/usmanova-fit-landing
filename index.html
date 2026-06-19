@@ -22,6 +22,8 @@
       --hover-pink: #e02262;
       --light-pink: #fff0f4;
       --dark-gray: #1a1a1a;
+      --text-primary: #1c1c1e;
+      --text-secondary: #2f3033;
       --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
       --focus-shadow: 0 0 0 4px rgba(255, 51, 119, 0.15);
       --valid-border: #4ade80;
@@ -38,7 +40,7 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      color: #222;
+      color: var(--text-primary);
       background: #fff;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -280,11 +282,11 @@
 
     .hero h1 {
       font-size: clamp(2rem, 4.5vw, 46px);
-      font-weight: 800;
+      font-weight: 900;
       line-height: 1.1;
       margin-bottom: 20px;
-      color: #111;
-      letter-spacing: -1px;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
       text-transform: uppercase;
     }
 
@@ -301,7 +303,7 @@
 
     .hero p {
       font-size: 16px;
-      color: #555;
+      color: var(--text-secondary);
       margin-bottom: 32px;
       max-width: 520px;
     }
@@ -356,7 +358,7 @@
       align-items: flex-start;
       gap: 14px;
       font-size: 15px;
-      color: #444;
+      color: var(--text-secondary);
     }
 
     .benefits-list img {
@@ -1354,6 +1356,161 @@
       height: 100%;
       object-fit: cover;
     }
+
+    /* Premium UI hardening: geometry, contrast, and tap targets */
+    p,
+    li,
+    .section-header p,
+    .feature-card p,
+    .feature-item,
+    .pricing-features li,
+    .faq-answer p,
+    .calculator-cta,
+    .footer-info p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .section-header h2,
+    .footer-info h2 {
+      color: var(--text-primary);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .course-content h3,
+    .pricing-card h3,
+    .feature-card h3 {
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .course-content > p:not(.course-meta) {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: calc(1.6em * 3);
+    }
+
+    .course-footer {
+      min-height: 64px;
+    }
+
+    .course-price,
+    .price-current,
+    .calculator-stat__value {
+      letter-spacing: -0.03em;
+    }
+
+    .result-item img,
+    .result-side {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      background: #fdf8f9;
+    }
+
+    .section-focus-wrapper {
+      max-width: 540px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-focus-wrapper::before,
+    .footer-form::before {
+      content: '';
+      position: absolute;
+      inset: -40% auto auto -20%;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 51, 119, 0.08), transparent 68%);
+      filter: blur(30px);
+      pointer-events: none;
+    }
+
+    .calculator-form,
+    .calculator-result,
+    .footer-form > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-wrapper {
+      grid-template-columns: 1fr minmax(0, 540px);
+    }
+
+    .footer-form-col {
+      max-width: 540px;
+    }
+
+    .footer-form {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 90% 0%, rgba(255, 51, 119, 0.16), transparent 34%),
+        rgba(255, 255, 255, 0.045);
+    }
+
+    .footer .footer-info h2 {
+      color: #fff;
+    }
+
+    .footer .footer-info p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .floating-input {
+      height: 54px;
+      padding: 18px 16px;
+      background: rgba(255, 255, 255, 0.055);
+      border-color: rgba(255, 255, 255, 0.16);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .floating-label {
+      left: 16px;
+      top: 18px;
+      transform: none;
+      color: rgba(255, 255, 255, 0.58);
+    }
+
+    .floating-input:focus + .floating-label,
+    .floating-input:not(:placeholder-shown) + .floating-label {
+      top: -9px;
+      left: 12px;
+      color: var(--primary-pink);
+      background: #202020;
+      padding: 0 7px;
+      border-radius: 999px;
+    }
+
+    .form-control,
+    .calc-control,
+    .floating-input {
+      min-height: 54px;
+    }
+
+    .btn,
+    .btn-outline,
+    .course-card,
+    .result-item,
+    .pricing-card,
+    .feature-card,
+    .floating-input,
+    .calc-control {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn:focus-visible,
+    .btn-outline:focus-visible,
+    .category-tab:focus-visible,
+    .floating-input:focus-visible,
+    .calc-control:focus-visible {
+      outline: none;
+      box-shadow: var(--focus-shadow);
+    }
   </style>
 </head>
 <body>
@@ -1921,7 +2078,7 @@
     emailInput.addEventListener('input', validateEmail);
     emailInput.addEventListener('blur', validateEmail);
 
-    function handleFormSubmit(event) {
+    async function handleFormSubmit(event) {
       event.preventDefault();
       const nameValid = validateName();
       const emailValid = validateEmail();
@@ -1933,53 +2090,53 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Отправка...';
 
-      fetch('/api/telegram', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name,
-          email,
-          utm_source: document.getElementById('utm_source').value,
-          utm_medium: document.getElementById('utm_medium').value,
-          utm_campaign: document.getElementById('utm_campaign').value,
-        }),
-      })
-        .then(async (res) => {
-          let data;
-          try {
-            data = await res.json();
-          } catch {
-            throw new Error('Invalid response');
-          }
-          if (!res.ok || !data.ok) throw new Error(data.error || 'Ошибка отправки');
-          return data;
-        })
-        .then(() => {
-          mTitle.textContent = 'Заявка принята!';
-          mText.textContent = 'Спасибо, ' + name + '! Мы получили ваши данные и отправили подборку марафонов на вашу почту.';
-          mText.setAttribute('aria-live', 'polite');
-          showModal();
-          event.target.reset();
-          initUtmParams();
-          nameInput.classList.remove('valid', 'invalid');
-          emailInput.classList.remove('valid', 'invalid');
-          nameInput.setAttribute('aria-invalid', 'false');
-          emailInput.setAttribute('aria-invalid', 'false');
-        })
-        .catch((err) => {
-          console.error('Lead form error:', err);
-          mTitle.textContent = 'Не удалось отправить';
-                    const isNetwork = !navigator.onLine || err instanceof TypeError;
-          mText.textContent = isNetwork
-            ? 'Нет связи с сервером. Проверьте интернет и отправьте заявку ещё раз.'
-            : (err.message || 'Попробуйте ещё раз через минуту или напишите нам в соцсетях.');
-          mText.setAttribute('aria-live', 'assertive');
-          showModal();
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalText;
+      try {
+        const response = await fetch('/api/telegram', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            email,
+            utm_source: document.getElementById('utm_source').value,
+            utm_medium: document.getElementById('utm_medium').value,
+            utm_campaign: document.getElementById('utm_campaign').value,
+          }),
         });
+
+        let data;
+        try {
+          data = await response.json();
+        } catch {
+          throw new Error('Сервер вернул некорректный ответ');
+        }
+
+        if (!response.ok || !data.ok) {
+          throw new Error(data.error || 'Ошибка отправки заявки');
+        }
+
+        mTitle.textContent = 'Заявка принята!';
+        mText.textContent = 'Спасибо, ' + name + '! Мы получили ваши данные и отправили подборку марафонов на вашу почту.';
+        mText.setAttribute('aria-live', 'polite');
+        showModal();
+        event.target.reset();
+        initUtmParams();
+        nameInput.classList.remove('valid', 'invalid');
+        emailInput.classList.remove('valid', 'invalid');
+        nameInput.setAttribute('aria-invalid', 'false');
+        emailInput.setAttribute('aria-invalid', 'false');
+      } catch (err) {
+        console.error('Lead form error:', err);
+        mTitle.textContent = 'Не удалось отправить';
+        const isNetwork = !navigator.onLine || err instanceof TypeError;
+        mText.textContent = isNetwork
+          ? 'Нет связи с сервером. Проверьте интернет и отправьте заявку ещё раз.'
+          : (err.message || 'Попробуйте ещё раз через минуту или напишите нам в соцсетях.');
+        mText.setAttribute('aria-live', 'assertive');
+        showModal();
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
 
       return false;
     }
